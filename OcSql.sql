@@ -14,61 +14,58 @@ grant all privileges on pesdb.* to 'pes'@'localhost' with grant option;
 -- pes에게 파일 처리권한 부여
 grant file on *.* to 'pes'@'localhost';
 
--- OCR 음식 테이블
-create table food (
-	no int auto_increment,
-	id varchar(20),
-    foodname char(30),
-    date char (10),
 
-    primary key(no)
-    )charset=utf8;
-    
-drop table food;
+-- OCR 임시 저장 테이블
+
+CREATE TABLE foodlist (
+  no INT AUTO_INCREMENT PRIMARY KEY,
+  id VARCHAR(20),
+  foodname CHAR(30),
+  buydate date,
+  expirydate date
+) CHARSET=utf8;
+
+desc foodlist;
+
+select * from foodlist;
+drop table foodlist;
+
+-- OCR 사용자 전체 테이블
+
+CREATE TABLE food (
+  no INT AUTO_INCREMENT,
+  id  varchar(20) NOT NULL,
+  foodname CHAR(30) NOT NULL,
+  buydate date,
+  expirydate date,
+  PRIMARY KEY (no,id)
+) CHARSET=utf8;
+
 desc food;
-    
-insert into food (id,foodname,date) value('ys','사과','2023-12-12');
-insert into food (id,foodname,date) values('ys','멋쟁이토마토','2023-12-12');
+
+INSERT INTO food (id,foodname)
+VALUES
+  ('ys', 'apple'),
+  ('ys', 'banana'),
+  ('jj', '고기'),
+  ('jj', '나물무침'),
+  ('jj', '산적'),
+  ('abdk', '훈제오리');
+
+-- 그룹별로 AUTO_INCREMENT 값을 할당하는 UPDATE 문
+UPDATE food a
+JOIN (
+  SELECT id, foodname, ROW_NUMBER() OVER (PARTITION BY id ORDER BY no) AS new_no
+  FROM food
+) AS subquery
+ON a.id = subquery.id AND a.foodname = subquery.foodname
+SET a.no = subquery.new_no;
+
+-- 결과 조회
+SELECT * FROM food where id = 'ys' ORDER BY id,no ;
+
+drop table food;
 select * from food;
-
-
-create table animals(
-	grp varchar(20) not null,
-	id mediumint not null auto_increment,
-	name char(30) not null,
-	primary key (id)
-	)charset=utf8;
-
--- 그룹별 AUTO_INCREMENT 값을 초기화하기 위한 트리거 생성
-delimiter //
-create trigger reset_auto_increment
-before insert on animals
-for each row
-begin
-  declare max_id int;
-  set max_id = (select max(id) from animals where grp = new.grp);
-  if max_id is null then
-    set new.id = 1;
-  else
-    set new.id = max_id + 1;
-  end if;
-end;
-//
-delimiter ;
-
--- 테이블에 데이터 추가
-insert into animals (grp, name) values ('fish', 'Goldfish');
-insert into animals (grp, name) values ('mammal', 'Dog');
-insert into animals (grp, name) values ('bird', 'Parrot');
-
--- 확인
-select * from animals;
-
-insert into animals (grp,name) 
-values('mammal','dog'),('mammal','cat'),('bird','penguin'),('fish','lax'),('mammal','whale'),('bird','ostrich');
-
-drop table animals;
-select * from animals;
 
 
 

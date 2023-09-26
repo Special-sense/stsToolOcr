@@ -31,6 +31,14 @@ public class OcrServicelmpl implements OcrService {
 
 	}
 		
+	@Override
+	public void getOcrFoodList(HashMap<String, String> param) {
+
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+
+		ocrDAO.addDB(param);
+		
+	}
 	
 	//데이터 음식만 추출
 	@Override
@@ -99,7 +107,7 @@ public class OcrServicelmpl implements OcrService {
 			int intValue = Integer.parseInt(value); // 문자열을 정수로 변환
 
 			if (intValue == -1) {
-				countNumber.add(i, String.valueOf(mList.indexOf("과세물품:")));
+				countNumber.add(i, String.valueOf(mList.indexOf("과세")));
 				find = i;
 				break;
 			}

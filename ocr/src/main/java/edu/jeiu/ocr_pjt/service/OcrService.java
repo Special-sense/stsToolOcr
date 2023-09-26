@@ -9,6 +9,8 @@ public interface OcrService {
 	
 
 	public void dateMod(List<String> param);
+	
+	public void getOcrFoodList(HashMap<String, String> param);
 
 
 }

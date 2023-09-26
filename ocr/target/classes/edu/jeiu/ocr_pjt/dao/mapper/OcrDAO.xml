@@ -9,7 +9,7 @@
 
 
 	<insert id="insertfood" parameterType="String">
-	    insert into food (foodname) values (#{inputFood})
+	    insert into foodlist (foodname) values (#{inputFood})
 	</insert>
 
 
