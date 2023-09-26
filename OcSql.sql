@@ -30,3 +30,71 @@ desc food;
 insert into food (id,foodname,date) value('ys','사과','2023-12-12');
 insert into food (id,foodname,date) values('ys','멋쟁이토마토','2023-12-12');
 select * from food;
+
+
+create table animals(
+	grp varchar(20) not null,
+	id mediumint not null auto_increment,
+	name char(30) not null,
+	primary key (id)
+	)charset=utf8;
+
+-- 그룹별 AUTO_INCREMENT 값을 초기화하기 위한 트리거 생성
+delimiter //
+create trigger reset_auto_increment
+before insert on animals
+for each row
+begin
+  declare max_id int;
+  set max_id = (select max(id) from animals where grp = new.grp);
+  if max_id is null then
+    set new.id = 1;
+  else
+    set new.id = max_id + 1;
+  end if;
+end;
+//
+delimiter ;
+
+-- 테이블에 데이터 추가
+insert into animals (grp, name) values ('fish', 'Goldfish');
+insert into animals (grp, name) values ('mammal', 'Dog');
+insert into animals (grp, name) values ('bird', 'Parrot');
+
+-- 확인
+select * from animals;
+
+insert into animals (grp,name) 
+values('mammal','dog'),('mammal','cat'),('bird','penguin'),('fish','lax'),('mammal','whale'),('bird','ostrich');
+
+drop table animals;
+select * from animals;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
