@@ -9,12 +9,19 @@
 
 
 	<insert id="insertfood" parameterType="String">
-	    insert into food (foodname) values (#{inputFood})
+	    insert into foodlist (foodname) values (#{inputFood})
 	</insert>
 
 
 	<update id="addDB" parameterType="hashmap">
 			update OcrTest set countNumber = 99  where id = 1;
 	</update>
+	
+	<select id="getDBOcrFoodList" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+		SELECT no , foodname
+		FROM foodlist
+
+		order by no desc ;
+	</select>
 
 </mapper>
