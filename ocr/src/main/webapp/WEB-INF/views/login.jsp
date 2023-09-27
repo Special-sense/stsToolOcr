@@ -5,13 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="login.css" rel="stylesheet">
+    <link href="css/login.css?ver=1" rel="stylesheet">
+    <link href="js/login.js?ver=1" rel="stylesheet">
+
     <title>sign in</title>
 </head>
 <body>
     <div class="login-all">
         <div class="login-logo">
-            <img src="/img/logo_refrigerator.png">
+            <img src="resources//img/logo_refrigerator.png">
         </div>
             <div class="login-form">
                 <form name="loginform" method="post" action="여기 경로" autocomplete="off">
@@ -31,10 +33,10 @@
             <div class="login-add">
             <ul class="add">
                 <li>
-                <a href="/register.html">회원가입</a>
+                <a href="register_open">회원가입</a>
                 </li>
                 <li>
-                <a href="/비번찾는경로추가">비밀번호 찾기</a>
+                <a href="#">비밀번호 찾기</a>
                 </li>
             </ul>
             </div>

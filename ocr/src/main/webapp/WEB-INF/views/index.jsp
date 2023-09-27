@@ -27,12 +27,12 @@
             <div class="nav">
                 <ul>
                     <li class="nav-text">
-                        <a href="index.html">
+                        <a href="index_open">
                             <img src="resources/img/logo_refrigerator_white.png" width="80px" alt="logo-main">
                         </a>
                     </li>
-                    <li class="nav-text01"><a href="javascript:moveocr">부탁해</a></li>
-                    <li class="nav-text02"><a href="javascript:lgoin">로그인</a></li>
+                    <li class="nav-text01"><a href="list_open">부탁해</a></li>
+                    <li class="nav-text02"><a href="login_open">로그인</a></li>
                 </ul>
             </div>
 
@@ -78,7 +78,7 @@
         <!-- 세번째 박스 -->
         <div class="box02"> 
             <p><a class="point">냉장고를 부탁해</a><br> 스마트한 냉장고를 만나보세요.</p>
-            <button class="box02-btn"><a href="login.jsp">START !</a></button>
+            <button class="box02-btn"><a href="login_open">START !</a></button>
         </div>
 
         <!-- 푸터 -->
