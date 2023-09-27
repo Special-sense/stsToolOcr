@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.jeiu.ocr_pjt.dao.OcrDAO;
+import edu.jeiu.ocr_pjt.dto.OcrDto;
 
 @Transactional
 @Service("OcrServicelmpl")
@@ -32,11 +33,15 @@ public class OcrServicelmpl implements OcrService {
 	}
 		
 	@Override
-	public void getOcrFoodList(HashMap<String, String> param) {
+	public List<OcrDto> getOcrFoodList(HashMap<String, String> param) {
 
 		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		
+		List<OcrDto> getOcrFoodList = ocrDAO.getDBOcrFoodList(param);
 
-		ocrDAO.addDB(param);
+		
+		
+		return getOcrFoodList;
 		
 	}
 	

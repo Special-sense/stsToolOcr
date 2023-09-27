@@ -42,9 +42,9 @@ public class OcrController {
 
 	// 파일 업로드 및 OCR 수행을 위한 POST 요청 핸들러 메서드
 	@RequestMapping("/uploadAndOcr")
-	public ModelAndView uploadAndOcr(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+	public ModelAndView uploadAndOcr(@RequestParam("file") MultipartFile file, Model model , HashMap<String , String> param ) throws IOException {
 		ModelAndView modelAndView = new ModelAndView();
-		//	        if (file.isEmpty()) {
+//	        if (file.isEmpty()) {
 //	        	System.out.println("비어있다");
 //	            return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동
 //	        }
@@ -97,8 +97,8 @@ public class OcrController {
 		ocrService.dateMod(result);
 		model.addAttribute("ocrResult", result); // OCR 결과를 HTML 템플릿에 전달
 		
-//		List<OcrDto> ocrFoodList = ocrService.getOcrFoodList(param);
-//		modelAndView.addObject("accountTransferList", ocrFoodList);
+		List<OcrDto> ocrFoodList = ocrService.getOcrFoodList(param);
+		modelAndView.addObject("ocrFoodList", ocrFoodList);
 		modelAndView.setViewName("inputText");
 
 		return modelAndView; // OCR 결과를 표시하는 HTML 템플릿 이름 반환

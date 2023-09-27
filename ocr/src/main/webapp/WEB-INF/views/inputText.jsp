@@ -40,19 +40,23 @@
 				<th>상품명</th>
 				<th>구매 날짜</th>
 				<th>유통기한</th>
+				<th>삭제</th>
 			</tr>
 			
-			<c:forEach var="i" items="${foodlist}">
+			<c:forEach var="i" items="${ocrFoodList}">
 				<tr>
-					<td>${i.no}</td>
-					<td>${i.foodname}</td>
-					<td>${i.buydate}</td>
-					<td>${i.expirydate}</td>
-
+					<td><input type="text" name="no" value="${i.no}" size = "10" readonly></td>
+					<td><input type="text" name="no" value="${i.foodname}" size = "50"></td>
+	 				<td><input type="date" name="buydate" value="${i.buydate}" size = "50"></td>
+					<td><input type="date" name="buydate" value="${i.expirydate}" size = "50"></td> 
+					<td><input type="checkbox" size = "20"></td> 
 				</tr>
 			</c:forEach>			
 			
 		</table>
+		
+		<input type="button" value="완료 " onClick="addFoodlist()"></input>
+		<input type="button" value="삭제하기 " onClick="addFoodlist()"></input>
 	</form>
 	</div>
 
