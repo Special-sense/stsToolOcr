@@ -1,0 +1,67 @@
+@charset "EUC-KR";
+/* --------------기본 세팅 ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    background-color: #fbfbfb;
+}
+/*     위쪽 로고부분     */
+.login-logo {
+    margin-left:48%;
+    margin-top:5%;
+  }
+.login-logo img{
+    width:6vw;
+    height: 7vw; 
+}
+  
+    
+
+/*     id and pw    */
+.login-form {
+    border:4px solid #FFFFFF;
+    width:34vw;
+    height: 28vw;
+    margin-left:35%;
+    border-radius: 15px 10px;
+}
+
+.login-border{  
+    border:0px solid #FFFFFF;
+}
+.inform{
+    list-style:none;
+    margin-left:30%;
+}
+
+
+/*       add      */
+.add{
+    list-style:none;
+}
+.add li{
+    float: left;
+    margin-left: 23%;
+}
+.add li a{
+    text-decoration: none; 
+    color: black;
+    
+}
+
+
+
+
+/*     버튼     */
+.login-btn{
+    margin-left: 20%;
+    margin-top: 55%;
+    border-radius: 20px;
+    width:22svw;
+    height: 3vw;
+    background-color: #217542;
+}
+
+/*     공용푸터     */

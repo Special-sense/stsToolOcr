@@ -21,7 +21,7 @@
     <div class="container">
         
         <!-- 메인 -->
-        <div class="main"> 
+        <div class="main" style="background-image: url('resources/img/img_refrigerator.png')"> 
             
             <!-- 상단 메뉴바 -->
             <div class="nav">
@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li class="nav-text01"><a href="javascript:moveocr">부탁해</a></li>
-                    <li class="nav-text02"><a href="login.html">로그인</a></li>
+                    <li class="nav-text02"><a href="javascript:lgoin">로그인</a></li>
                 </ul>
             </div>
 
@@ -49,7 +49,7 @@
                 <source src="resources/img/video_receipt.mp4">
             </video>
             <div class="box-text-container">
-                <p class="box-text"><img src="img/img_scan.png">가장 쉬운 상품 입력</p>
+                <p class="box-text"><img src="resources/img/img_scan.png">가장 쉬운 상품 입력</p>
                 <p class="box-text01">영수증을 통해 <a class="point">냉장고</a>에 들어갈<br> 식품을 쉽게 등록하세요.</p>
                 <p class="box-text02">저희 <a class="point">냉장고를 부탁해</a>는 'OCR 문자 인식' 시스템을<br> 활용해 영수증을 스켄하여 냉장고에 들어갈 상품만<br> 추출 후 자동으로 상품을 입력합니다.</p>
             </div>
