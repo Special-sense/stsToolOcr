@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OCR 만들기</title>
   
-  	<script type="text/javascript" src="js/ocr_list.js?ver=1"></script>
+  	<script type="text/javascript" src="resources/js/ocr_list.js?ver=1"></script>
 </head>
 <body>
 <h1>Image Upload and OCR</h1>

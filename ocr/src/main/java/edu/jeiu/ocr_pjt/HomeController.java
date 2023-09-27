@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "ocr_list";
+		return "index";
 	}
 //	@RequestMapping(value = "/uploadAndOcr", method = RequestMethod.GET)
 //	public String home12(Locale locale, Model model) {

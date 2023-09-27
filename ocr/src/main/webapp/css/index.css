@@ -1,0 +1,223 @@
+@charset "EUC-KR";
+/* ----------- 기본 세팅 ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+.point {
+    color: #217542;
+}
+
+/* ----------- 컨테이너 ----------- */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ----------- 메인 ----------- */
+.main {
+    width: 100%;
+    height: 48.5vw;
+    background-image: url('img/img_refrigerator.png');
+    background-size: cover;
+}
+
+.nav {
+    background-color: transparent;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav li {
+    margin: 20px 0 0 30px;
+}
+
+.nav-text01 {
+    position: absolute;
+    top: 15px;
+    right: 250px;
+}
+
+.nav-text02 {
+    position: relative;
+    top: 15px;
+    right: 100px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 2.5vh;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: black;
+}
+
+.main {
+    position: relative;
+}
+
+.main-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    padding: 10px;
+    color: white;
+    font-size: 3vw;
+}
+
+
+
+
+/* ----------- 첫번째 박스 ----------- */
+.box {
+    width: 60%;
+    height: 48.5vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.box video {
+    float: right;
+    height: 100%;
+}
+
+.box-text img {
+    margin-bottom: -10px;
+    width: 3vw;
+}
+
+.box-text {
+    font-size: 2.5vw;
+    padding-top: 20%;
+}
+
+.box-text01 {
+    font-weight: 500;
+    font-size: 1.7vw;
+    margin: 15px 0 0 20px;
+}
+
+.box-text02 {
+    font-weight: 400;
+    font-size: 1.2vw;
+    margin: 100px 0 0 20px;
+}
+
+
+
+/* ----------- 두번째 박스 ----------- */
+.bin-box {
+    width: 100%;
+    height: 48vw;
+    background-color: #f3f3f3;
+
+}
+
+.box01 {
+    width: 60%;
+    height: 48vw;
+    position: relative;
+    background-color: #f3f3f3;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.box01 img {
+    width: 13vw;
+}
+
+.box01-main-text {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 2.5vw;
+    color: #217542;
+}
+
+.box01-text-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box01-text-container p {
+    font-size: 1.2vw;
+    font-weight: 400;
+}
+
+.box01-function {
+    margin-top: 8.5%;
+    width: 33%;
+}
+.box01-function01 {
+    margin-top: 23.5%;
+    width: 33%;
+}
+.box01-function02 {
+    margin-top: 8.5%;
+    width: 33%;
+}
+
+
+/* ----------- 세번째 박스 ----------- */
+.box02 {
+    width: 60%;
+    height: 48.5vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.box02 p {
+    text-align: center;
+    padding-top: 20%;
+    font-size: 4vw;
+    padding-bottom: 10%;
+}
+
+/* START ! 버튼 스타일링 */
+.box02-btn {
+    
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #217542;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 2.5vw;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.box02-btn:hover {
+    background-color: #ffffff;
+    color: #217542;
+}
+
+.box02-btn a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ----------- 푸터 ----------- */
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: gray;
+}
