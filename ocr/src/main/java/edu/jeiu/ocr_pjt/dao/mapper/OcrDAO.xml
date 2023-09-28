@@ -6,6 +6,11 @@
 <mapper namespace="edu.jeiu.ocr_pjt.dao.OcrDAO">
 
 
+	<!--  회원가입 -->
+	<insert id="insertfood" parameterType="String">
+	    insert into foodlist (foodname) values (#{inputFood})
+	</insert>
+
 
 
 	<insert id="insertfood" parameterType="String">
@@ -23,5 +28,6 @@
 
 		order by no desc ;
 	</select>
+	
 
 </mapper>

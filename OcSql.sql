@@ -15,7 +15,21 @@ grant all privileges on pesdb.* to 'pes'@'localhost' with grant option;
 grant file on *.* to 'pes'@'localhost';
 
 
+
+-- 회원가입 테이블
+create table register (
+  id VARCHAR(20),
+  userPW varchar(20),
+  username varchar(20),
+  PRIMARY KEY (id)
+) CHARSET=utf8;
+
+desc register;
+
+
+
 -- OCR 임시 저장 테이블
+
 
 CREATE TABLE foodlist (
   no INT AUTO_INCREMENT PRIMARY KEY,

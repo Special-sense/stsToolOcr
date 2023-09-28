@@ -45,6 +45,9 @@ public class RealController {
 	//login끝-----------------------------------------------------------------
 	//-----------------------------------------------------------------------
 	
+	
+	
+	
 	//register 관련 명령어들 =================================================
 	@RequestMapping("/register_open")
 	public ModelAndView register_open() {
@@ -54,6 +57,16 @@ public class RealController {
 		
 		return modelAndView;
 	}
+	@RequestMapping("/registerInsert")
+	public ModelAndView registerInsert() {
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("register");
+		
+		return modelAndView;
+	}
+
+	
 	//register끝-----------------------------------------------------------------
 	//-----------------------------------------------------------------------
 	

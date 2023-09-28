@@ -31,6 +31,25 @@ public class OcrServicelmpl implements OcrService {
 		ocrDAO.addDB(param);
 
 	}
+	
+	
+	//회원가입시
+	@Override
+	public void insertRegister(HashMap<String, String> param) {
+
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+
+		
+
+		
+		
+
+		
+	}
+	
+	
+	
+	
 		
 	@Override
 	public List<OcrDto> getOcrFoodList(HashMap<String, String> param) {
@@ -44,6 +63,8 @@ public class OcrServicelmpl implements OcrService {
 		return getOcrFoodList;
 		
 	}
+	
+
 	
 	//데이터 음식만 추출
 	@Override

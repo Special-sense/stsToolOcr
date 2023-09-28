@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/login.css?ver=1" rel="stylesheet">
-    <link href="js/login.js?ver=1" rel="stylesheet">
+    <script type="text/javascript" src="js/login.js?ver=1"></script>
 
     <title>sign in</title>
 </head>
@@ -16,16 +16,16 @@
             <img src="resources//img/logo_refrigerator.png">
         </div>
             <div class="login-form">
-                <form name="loginform" method="post" action="여기 경로" autocomplete="off">
+                <form name="loginform" method="post" action="" autocomplete="off">
                     <fieldset class="login-border">
                         <ul class="inform">
                             <li>
                                 <label for="userID">ID</label>
-                                <input type="text" name="userID" class="login-ID" placeholder="아이디">
+                                <input type="text" name="userID" class="login-ID" placeholder="아이디" value=${Ocrdto.userID}>
                             </li>
                             <li>
                                 <label for="userPW">PW</label>
-                                <input type="text" name="userPW" class="login-pw" placeholder="비밀번호">
+                                <input type="text" name="userPW"  class="login-pw" placeholder="비밀번호" value=${Ocrdto.userPW}>
                             </li>
                         </ul>
                         <button type="submit" class="login-btn">로그인</button>

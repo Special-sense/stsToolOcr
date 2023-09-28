@@ -3,6 +3,9 @@ package edu.jeiu.ocr_pjt.dto;
 public class OcrDto {
 	
 	private String userId ;
+	private String userPW ;
+	private String username ;
+	
 	private int no ;
 	private String foodname;
 	private String buydate;
