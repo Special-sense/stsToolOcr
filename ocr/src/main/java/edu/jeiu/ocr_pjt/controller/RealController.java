@@ -32,7 +32,7 @@ public class RealController {
 	//index관련 명령어 여기까지 =================================================
 	
 	//login 관련 명령어들 =================================================
-	// 목록 조회화면 Open
+	//로그인 화면Open
 	@RequestMapping("/login_open")
 	public ModelAndView login_open() {
 
@@ -41,7 +41,26 @@ public class RealController {
 		
 		return modelAndView;
 	}
-	
+	//로그인 시도
+	@RequestMapping("/login")
+	public ModelAndView login(@RequestParam HashMap<String, String> param ) {
+
+		ModelAndView modelAndView = new ModelAndView();
+		boolean a = ocrService.logintry(param) ;
+
+		
+		if(a) {
+			modelAndView.setViewName("index");
+		} else {
+			modelAndView.setViewName("login");
+		}
+
+		
+		
+		
+		return modelAndView;
+	}
+
 	//login끝-----------------------------------------------------------------
 	//-----------------------------------------------------------------------
 	
@@ -49,6 +68,7 @@ public class RealController {
 	
 	
 	//register 관련 명령어들 =================================================
+	//회원가입창 오픈
 	@RequestMapping("/register_open")
 	public ModelAndView register_open() {
 
@@ -57,11 +77,13 @@ public class RealController {
 		
 		return modelAndView;
 	}
+	//DB 회원가입 정보 입력
 	@RequestMapping("/registerInsert")
-	public ModelAndView registerInsert() {
+	public ModelAndView registerInsert(@RequestParam HashMap<String, String> param) {
 
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register");
+		ocrService.insertRegister(param);
+		modelAndView.setViewName("login");
 		
 		return modelAndView;
 	}

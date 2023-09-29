@@ -18,15 +18,20 @@ grant file on *.* to 'pes'@'localhost';
 
 -- 회원가입 테이블
 create table register (
-  id VARCHAR(20),
+  id varchar(20),
   userPW varchar(20),
-  username varchar(20),
+  userName varchar(20),
   PRIMARY KEY (id)
 ) CHARSET=utf8;
 
 desc register;
 
+select * from register where id ='ㅁ';
+select * from register;
 
+insert into register (id,userPW,username) values ('sun010331','pqnajn1541!','이영선');
+
+drop table register;
 
 -- OCR 임시 저장 테이블
 

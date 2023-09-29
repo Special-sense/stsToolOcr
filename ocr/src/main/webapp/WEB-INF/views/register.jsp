@@ -22,34 +22,34 @@
                         <ul class="inform">
                             <li>
                                 <label for="userID">ID</label>
-                                <input type="text" name="userID"  class="res-ID" placeholder="아이디" value=${Ocrdto.userID}>
+                                <input type="text" name="id"  class="res-ID" placeholder="아이디" value=${OcrDto.id}>
                             </li>
                             <li>
                                 <label for="username">이름</label>
-                                <input type="text" name="username"  class="res-name" value=${Ocrdto.username}>
+                                <input type="text" name="userName"  class="res-name" value=${OcrDto.userName}>
                             </li>
                             <li>
                                 <label for="userPW">PW</label>
-                                <input type="text" name="userPW" class="res-pw" placeholder="비밀번호" value=${Ocrdto.userPW} >
+                                <input type="text" name="userPW" class="res-pw" placeholder="비밀번호" value=${OcrDto.userPW} >
                             </li>
                             <li>
                                 <label for="userPW">PW 확인</label>
                                 <input type="text" name="userok"   class="res-pwok" >
                             </li>
                         </ul>
-                    </fieldset>
+                    </fieldset>                   
+        			<input type="button" onClick="register()" value="회원가입" class="login-btn"></button>
                 </form>
         </div>
 
-        <input type="button" onClick="register()" value="회원가입" class="login-btn"></button>
                 
             <div class="login-add">
             <ul class="add">
                 <li>
-                <a href="/register.html">회원가입</a>
+                <a href="login_open">로그인</a>
                 </li>
                 <li>
-                <a href="/비번찾는경로추가">비밀번호 찾기</a>
+                <a href="#">비밀번호 찾기</a>
                 </li>
             </ul>
             </div>
