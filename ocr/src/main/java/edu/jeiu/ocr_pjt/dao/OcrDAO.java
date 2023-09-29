@@ -8,7 +8,14 @@ import edu.jeiu.ocr_pjt.dto.OcrDto;
 public interface OcrDAO {
 
 	
+	
+	//로그인시 체크 메소드
+	public OcrDto loginCheck(HashMap<String, String> param);
+	
 
+	
+	//회원가입 insert 메소트
+	public void insertRegisterDB(HashMap<String, String> param);
 
 	// 사용자 냉장고 select 메소드
 	public void selectfood(String param);

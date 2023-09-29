@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link href="css/index.css?ver=1" rel="stylesheet">
-    <link href="js/index.js?ver=1" rel="stylesheet">
+    <script type="text/javascript" src="js/index.js?ver=1"></script>
 
 </head>
 <body>

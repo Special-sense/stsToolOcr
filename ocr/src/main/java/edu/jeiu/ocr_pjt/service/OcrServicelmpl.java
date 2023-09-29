@@ -1,8 +1,12 @@
 package edu.jeiu.ocr_pjt.service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.swing.JOptionPane;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,44 @@ public class OcrServicelmpl implements OcrService {
 		ocrDAO.addDB(param);
 
 	}
+	
+	//로그인시
+	@Override
+	public boolean logintry( HashMap<String, String> param)  {
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		OcrDto ocrDto = ocrDAO.loginCheck(param);
+		boolean a = true;
+
+		
+	    if(ocrDto != null){
+
+			  JOptionPane.showMessageDialog(null, ocrDto.getId()+"님 환영합니다");
+			  a = true;
+		}else{	  
+	    	JOptionPane.showMessageDialog(null, "비밀번호 혹은 아이디를 확인해주세요");
+			  a = false;
+		}
+		return a;
+	    
+	}
+	
+	//회원가입시
+	@Override
+	public void insertRegister(HashMap<String, String> param) {
+
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		ocrDAO.insertRegisterDB(param);
+		
+
+		
+		
+
+		
+	}
+	
+	
+	
+	
 		
 	@Override
 	public List<OcrDto> getOcrFoodList(HashMap<String, String> param) {
@@ -44,6 +86,8 @@ public class OcrServicelmpl implements OcrService {
 		return getOcrFoodList;
 		
 	}
+	
+
 	
 	//데이터 음식만 추출
 	@Override
