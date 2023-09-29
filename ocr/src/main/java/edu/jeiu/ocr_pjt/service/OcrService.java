@@ -14,5 +14,13 @@ public interface OcrService {
 	
 	public List<OcrDto> getOcrFoodList(HashMap<String, String> param);
 
+	
+	//로그인
+	public boolean logintry( HashMap<String, String> param);
+	
+	
+	//회원가입
+	public void insertRegister(HashMap<String, String> param);
+
 
 }
