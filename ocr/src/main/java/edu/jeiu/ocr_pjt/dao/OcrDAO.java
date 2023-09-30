@@ -1,7 +1,10 @@
 package edu.jeiu.ocr_pjt.dao;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import edu.jeiu.ocr_pjt.dto.OcrDto;
 
@@ -20,12 +23,27 @@ public interface OcrDAO {
 	// 사용자 냉장고 select 메소드
 	public void selectfood(String param);
 	
-	// 입력DB 메소드 - insertfood
-	public void insertfood(String param);
+	// foollist 음식 날짜 입력DB 메소드 - insertfood
+	public void insertfood(@Param("inputFood") String inputFood ,@Param("buydate") String buydate );
+
+	
+	
 	
 	//냉장고에 넣은 후 바로 조회
 	public List<OcrDto> getDBOcrFoodList(HashMap<String, String> param);
+	
+	
+	
+	//냉장고에 넣은것들중 바로 삭제
+	public void deleteFoodlistDB(String no);
+	
+	//foodList 테이블 데이터 제거 후 food에 데이터 입력
+	public void  delectFoodList();
+	public void insertAddLockerDB(HashMap<String, String> param);
 
+	//locker에 food 테이블값 가지고 오기전 업테이트 후 가지고 오기
+	public void updateFoodTable();
+	public List<OcrDto> getDBOcrFood(HashMap<String, String> param);
 	// 실행 DB
 	public void addDB(HashMap<String, String> param);
 	

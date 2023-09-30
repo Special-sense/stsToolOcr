@@ -39,7 +39,7 @@ drop table register;
 CREATE TABLE foodlist (
   no INT AUTO_INCREMENT PRIMARY KEY,
   id VARCHAR(20),
-  foodname CHAR(30),
+  foodname VARCHAR(30),
   buydate date,
   expirydate date
 ) CHARSET=utf8;
@@ -47,6 +47,7 @@ CREATE TABLE foodlist (
 desc foodlist;
 
 select * from foodlist;
+delete  from foodlist;
 drop table foodlist;
 
 -- OCR 사용자 전체 테이블
@@ -60,6 +61,8 @@ CREATE TABLE food (
   PRIMARY KEY (no,id)
 ) CHARSET=utf8;
 
+select * from food;
+delete  from food;
 desc food;
 
 INSERT INTO food (id,foodname)

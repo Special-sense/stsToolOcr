@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	String mem_id = (String)session.getAttribute("id");
+	
+	String log="";
+	String help="";
+	if(mem_id == null){
+		log ="<a href=login_open> 로그인 </a>";
+	}else {
+		log ="<a href=logout> 로그아웃 </a>";
+	}
+	
+	if(mem_id == null){
+		help ="<a href=list_open> 부탁해 </a>";
+	}else {
+		help ="<a href=list_open> 부탁해 </a>";
+	}
+
+%>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -17,7 +36,7 @@
 
 </head>
 <body>
-<form name="form1" method="post" action="">
+
     <div class="container">
         
         <!-- 메인 -->
@@ -31,8 +50,8 @@
                             <img src="resources/img/logo_refrigerator_white.png" width="80px" alt="logo-main">
                         </a>
                     </li>
-                    <li class="nav-text01"><a href="list_open">부탁해</a></li>
-                    <li class="nav-text02"><a href="login_open">로그인</a></li>
+                    <li class="nav-text01"><%=help%></li>
+                    <li class="nav-text02"><%=log%></li>
                 </ul>
             </div>
 
@@ -130,6 +149,6 @@
         </div>
         </footer>
     </div>
-</form>
+
 </body>
 </html>

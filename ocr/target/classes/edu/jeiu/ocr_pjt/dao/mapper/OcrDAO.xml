@@ -8,37 +8,83 @@
 
 
 	<!-- 로그인 확인 -->
-	<select id="loginCheck" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+	<select id="loginCheck" parameterType="hashmap"
+		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
 		SELECT id,userPW
 		FROM register
-		where id = #{id}
+		where id = #{id} and userPW = #{userPW}
 	</select>
 
-	
-	<!--  회원가입-->
+
+	<!-- 회원가입 -->
 	<insert id="insertRegisterDB" parameterType="hashmap">
-	    insert into register (id,userPW,userName) values (#{id},#{userPW},#{userName})
+		insert into register (id,userPW,userName) values
+		(#{id},#{userPW},#{userName})
 	</insert>
-	
 
 
 
+	<!-- 임시적으로 데이터 가지고 오기 -->
+	<select id="getDBOcrFoodList" parameterType="hashmap"
+		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+		SELECT no , foodname , buydate
+		FROM foodlist
 
+		order by no desc
+	</select>
+
+	<!-- DB에 임시적으로 물품 넣기 -->
 	<insert id="insertfood" parameterType="String">
-	    insert into foodlist (foodname) values (#{inputFood})
+		insert into foodlist (foodname , buydate  ) values (#{inputFood} , #{buydate})
 	</insert>
+
+
+	<!-- DB에 임시적으로 물품중 삭제할거 삭제 -->
+	<delete id="deleteFoodlistDB" parameterType="String">
+		DELETE FROM
+		foodlist
+		WHERE no = #{no}
+	</delete>
+
+
+	<!-- foodList 테이블 데이터 제거 후 food에 데이터 입력 -->
+	<delete id="delectFoodList" parameterType="String">
+		DELETE FROM
+		foodlist
+	</delete>
+
+	<insert id="insertAddLockerDB" parameterType="hashmap">
+		insert into food (id,foodname , buydate, expirydate) values ( #{id} , #{foodname} , #{buydate} , #{expirydate} )
+	</insert>
+
+	<!-- locker에서 food 테이블값 가지고 오기전 데이터 세팅 -->
+	<update id="updateFoodTable" parameterType="hashmap">
+		UPDATE food a
+		JOIN (
+		SELECT id, foodname, ROW_NUMBER() OVER (PARTITION BY id ORDER BY no) AS
+		new_no
+		FROM food
+		) AS subquery
+		ON a.id = subquery.id AND a.foodname =
+		subquery.foodname
+		SET a.no = subquery.new_no;
+	</update>
+	
+	<select id="getDBOcrFood" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+	    SELECT no , foodname , buydate , expirydate
+	    FROM food
+	    WHERE id = #{id}
+	    ORDER BY no DESC
+	</select>
+
+
+
 
 
 	<update id="addDB" parameterType="hashmap">
-			update OcrTest set countNumber = 99  where id = 1
+		update OcrTest set countNumber = 99 where id = 1
 	</update>
-	
-	<select id="getDBOcrFoodList" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
-		SELECT no , foodname
-		FROM foodlist
 
-		order by no desc 
-	</select>
-	
+
 
 </mapper>

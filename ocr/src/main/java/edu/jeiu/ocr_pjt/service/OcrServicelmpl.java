@@ -1,11 +1,13 @@
 package edu.jeiu.ocr_pjt.service;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.apache.ibatis.session.SqlSession;
@@ -38,15 +40,15 @@ public class OcrServicelmpl implements OcrService {
 	
 	//로그인시
 	@Override
-	public boolean logintry( HashMap<String, String> param)  {
+	public boolean logintry( HashMap<String, String> param , HttpSession session)  {
 		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
 		OcrDto ocrDto = ocrDAO.loginCheck(param);
 		boolean a = true;
 
 		
 	    if(ocrDto != null){
-
-			  JOptionPane.showMessageDialog(null, ocrDto.getId()+"님 환영합니다");
+	    	  //로그인 성공시
+	    	  session.setAttribute("id", ocrDto.getId());
 			  a = true;
 		}else{	  
 	    	JOptionPane.showMessageDialog(null, "비밀번호 혹은 아이디를 확인해주세요");
@@ -73,7 +75,7 @@ public class OcrServicelmpl implements OcrService {
 	
 	
 	
-		
+	//임시로 데이터 가지고 오기
 	@Override
 	public List<OcrDto> getOcrFoodList(HashMap<String, String> param) {
 
@@ -87,6 +89,44 @@ public class OcrServicelmpl implements OcrService {
 		
 	}
 	
+	//체크박스 한 데이터 삭제
+	@Override
+	public void deleteFoodlist(String no) {
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		List<String> list = new ArrayList<>();
+		list.add(no);
+		ocrDAO.deleteFoodlistDB(no);
+		System.out.println(list);
+		
+
+	}
+	
+	//loker에 db 입력
+	public void insertAddLocker(HashMap<String, String> param) {
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		
+		//foodlist 데이터 제거
+		ocrDAO.delectFoodList();
+		//food에 데이터 입력
+		ocrDAO.insertAddLockerDB(param);
+		
+	}
+	
+	//locker에 food 테이블값 가지고 오기
+	@Override
+	public List<OcrDto> getOcrFood(HashMap<String, String> param) {
+		
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		
+		ocrDAO.updateFoodTable();
+		List<OcrDto> getOcrFood = ocrDAO.getDBOcrFood(param);
+
+		
+		
+		return getOcrFood;
+		
+	}
+	
 
 	
 	//데이터 음식만 추출
@@ -94,7 +134,6 @@ public class OcrServicelmpl implements OcrService {
 	public void dateMod(List<String> param) {
 
 		System.out.println("실험 시작");
-		
 		System.out.println(param);
 
 		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
@@ -108,7 +147,6 @@ public class OcrServicelmpl implements OcrService {
 		}
 
 		// 공백 제거완료 앞부분 제거 시작
-
 		System.out.println("금액 까지의 범위" + mList.indexOf("금액"));
 		int findex = mList.indexOf("금액");
 //	      int lindex = mList.indexOf("과세");
@@ -156,6 +194,7 @@ public class OcrServicelmpl implements OcrService {
 			int intValue = Integer.parseInt(value); // 문자열을 정수로 변환
 
 			if (intValue == -1) {
+				//여기 수정
 				countNumber.add(i, String.valueOf(mList.indexOf("과세")));
 				find = i;
 				break;
@@ -163,19 +202,28 @@ public class OcrServicelmpl implements OcrService {
 		}
 		
 		System.out.println(countNumber);
+		
+        // 현재 날짜 구하기 (시스템 시계, 시스템 타임존)
+        LocalDate now = LocalDate.now();
 
 		// 문자열 추가
 		StringBuilder List1 = new StringBuilder();
 		String inputFood = "";
+		String buydate = "";
+		String expirydate = "";
 		if (find > 0) {
 
 			for (int i = Integer.parseInt(countNumber.get(0)) + 1; i < Integer.parseInt(countNumber.get(1)) - 3; i++) {
 				List1.append(mList.get(i));
 			}
-			
+
 			inputFood = List1.toString();
-			ocrDAO.insertfood(inputFood);
-			System.out.println("첫번째물품" + inputFood);
+			buydate = now.toString();
+			expirydate = now.toString();
+
+			ocrDAO.insertfood(inputFood,buydate);
+
+			System.out.println(buydate+"첫번째물품" + inputFood);
 
 		}
 
@@ -187,7 +235,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List2.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("두번째물품" + inputFood);
 		}
 
@@ -199,7 +247,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List3.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("세번째물품" + inputFood);
 		}
 
@@ -211,7 +259,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List4.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("네번째물품" + inputFood);
 		}
 
@@ -223,7 +271,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List5.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("다섯번째물품" + inputFood);
 		}
 
@@ -235,7 +283,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List6.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("여섯번째물품" + inputFood);
 		}
 
@@ -247,7 +295,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List7.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("일곱번째물품" + inputFood);
 		}
 
@@ -259,7 +307,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List8.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("여덟번째물품" + inputFood);
 		}
 
@@ -271,7 +319,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List9.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("아홉번째물품" + inputFood);
 		}
 
@@ -283,7 +331,7 @@ public class OcrServicelmpl implements OcrService {
 			}
 			
 			inputFood = List10.toString();
-			ocrDAO.insertfood(inputFood);
+			ocrDAO.insertfood(inputFood,buydate);
 			System.out.println("열번째물품" + inputFood);
 
 		}
