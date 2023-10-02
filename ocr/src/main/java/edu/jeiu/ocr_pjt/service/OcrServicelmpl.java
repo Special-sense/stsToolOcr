@@ -126,6 +126,22 @@ public class OcrServicelmpl implements OcrService {
 		return getOcrFood;
 		
 	}
+	//locker에 food 수정할 테이블값 가지고 오기
+	public List<OcrDto> getEditOcrFood(HashMap<String, String> param){
+		
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		
+		
+
+		List<OcrDto> getEditOcrFood = ocrDAO.getDBEditOcrFood(param);
+
+		//가지고 오고 삭제하기
+		ocrDAO.DeleteFoodTableName();
+		
+		
+		return getEditOcrFood;
+		
+	}
 	
 
 	
@@ -221,120 +237,120 @@ public class OcrServicelmpl implements OcrService {
 			buydate = now.toString();
 			expirydate = now.toString();
 
-			ocrDAO.insertfood(inputFood,buydate);
+			ocrDAO.insertfood(inputFood,buydate,expirydate);
 
-			System.out.println(buydate+"첫번째물품" + inputFood);
-
-		}
-
-		StringBuilder List2 = new StringBuilder();
-		if (find > 1) {
-
-			for (int i = Integer.parseInt(countNumber.get(1)) + 1; i < Integer.parseInt(countNumber.get(2)) - 3; i++) {
-				List2.append(mList.get(i));
-			}
-			
-			inputFood = List2.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("두번째물품" + inputFood);
-		}
-
-		StringBuilder List3 = new StringBuilder();
-		if (find > 2) {
-
-			for (int i = Integer.parseInt(countNumber.get(2)) + 1; i < Integer.parseInt(countNumber.get(3)) - 3; i++) {
-				List3.append(mList.get(i));
-			}
-			
-			inputFood = List3.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("세번째물품" + inputFood);
-		}
-
-		StringBuilder List4 = new StringBuilder();
-		if (find > 3) {
-
-			for (int i = Integer.parseInt(countNumber.get(3)) + 1; i < Integer.parseInt(countNumber.get(4)) - 3; i++) {
-				List4.append(mList.get(i));
-			}
-			
-			inputFood = List4.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("네번째물품" + inputFood);
-		}
-
-		StringBuilder List5 = new StringBuilder();
-		if (find > 4) {
-
-			for (int i = Integer.parseInt(countNumber.get(4)) + 1; i < Integer.parseInt(countNumber.get(5)) - 3; i++) {
-				List5.append(mList.get(i));
-			}
-			
-			inputFood = List5.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("다섯번째물품" + inputFood);
-		}
-
-		StringBuilder List6 = new StringBuilder();
-		if (find > 5) {
-
-			for (int i = Integer.parseInt(countNumber.get(5)) + 1; i < Integer.parseInt(countNumber.get(6)) - 3; i++) {
-				List6.append(mList.get(i));
-			}
-			
-			inputFood = List6.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("여섯번째물품" + inputFood);
-		}
-
-		StringBuilder List7 = new StringBuilder();
-		if (find > 6) {
-
-			for (int i = Integer.parseInt(countNumber.get(6)) + 1; i < Integer.parseInt(countNumber.get(7)) - 3; i++) {
-				List7.append(mList.get(i));
-			}
-			
-			inputFood = List7.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("일곱번째물품" + inputFood);
-		}
-
-		StringBuilder List8 = new StringBuilder();
-		if (find > 7) {
-
-			for (int i = Integer.parseInt(countNumber.get(7)) + 1; i < Integer.parseInt(countNumber.get(8)) - 3; i++) {
-				List8.append(mList.get(i));
-			}
-			
-			inputFood = List8.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("여덟번째물품" + inputFood);
-		}
-
-		StringBuilder List9 = new StringBuilder();
-		if (find > 8) {
-
-			for (int i = Integer.parseInt(countNumber.get(8)) + 1; i < Integer.parseInt(countNumber.get(9)) - 3; i++) {
-				List9.append(mList.get(i));
-			}
-			
-			inputFood = List9.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("아홉번째물품" + inputFood);
-		}
-
-		StringBuilder List10 = new StringBuilder();
-		if (find > 9) {
-
-			for (int i = Integer.parseInt(countNumber.get(9)) + 1; i < Integer.parseInt(countNumber.get(10)) - 3; i++) {
-				List10.append(mList.get(i));
-			}
-			
-			inputFood = List10.toString();
-			ocrDAO.insertfood(inputFood,buydate);
-			System.out.println("열번째물품" + inputFood);
+			System.out.println(buydate+"첫번째물품" + inputFood+expirydate);
 
 		}
+
+//		StringBuilder List2 = new StringBuilder();
+//		if (find > 1) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(1)) + 1; i < Integer.parseInt(countNumber.get(2)) - 3; i++) {
+//				List2.append(mList.get(i));
+//			}
+//			
+//			inputFood = List2.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("두번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List3 = new StringBuilder();
+//		if (find > 2) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(2)) + 1; i < Integer.parseInt(countNumber.get(3)) - 3; i++) {
+//				List3.append(mList.get(i));
+//			}
+//			
+//			inputFood = List3.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("세번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List4 = new StringBuilder();
+//		if (find > 3) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(3)) + 1; i < Integer.parseInt(countNumber.get(4)) - 3; i++) {
+//				List4.append(mList.get(i));
+//			}
+//			
+//			inputFood = List4.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("네번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List5 = new StringBuilder();
+//		if (find > 4) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(4)) + 1; i < Integer.parseInt(countNumber.get(5)) - 3; i++) {
+//				List5.append(mList.get(i));
+//			}
+//			
+//			inputFood = List5.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("다섯번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List6 = new StringBuilder();
+//		if (find > 5) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(5)) + 1; i < Integer.parseInt(countNumber.get(6)) - 3; i++) {
+//				List6.append(mList.get(i));
+//			}
+//			
+//			inputFood = List6.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("여섯번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List7 = new StringBuilder();
+//		if (find > 6) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(6)) + 1; i < Integer.parseInt(countNumber.get(7)) - 3; i++) {
+//				List7.append(mList.get(i));
+//			}
+//			
+//			inputFood = List7.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("일곱번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List8 = new StringBuilder();
+//		if (find > 7) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(7)) + 1; i < Integer.parseInt(countNumber.get(8)) - 3; i++) {
+//				List8.append(mList.get(i));
+//			}
+//			
+//			inputFood = List8.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("여덟번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List9 = new StringBuilder();
+//		if (find > 8) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(8)) + 1; i < Integer.parseInt(countNumber.get(9)) - 3; i++) {
+//				List9.append(mList.get(i));
+//			}
+//			
+//			inputFood = List9.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("아홉번째물품" + inputFood);
+//		}
+//
+//		StringBuilder List10 = new StringBuilder();
+//		if (find > 9) {
+//
+//			for (int i = Integer.parseInt(countNumber.get(9)) + 1; i < Integer.parseInt(countNumber.get(10)) - 3; i++) {
+//				List10.append(mList.get(i));
+//			}
+//			
+//			inputFood = List10.toString();
+//			ocrDAO.insertfood(inputFood,buydate);
+//			System.out.println("열번째물품" + inputFood);
+//
+//		}
 
 	}
 

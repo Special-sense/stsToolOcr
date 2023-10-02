@@ -46,7 +46,7 @@ public class OcrController {
 		ModelAndView modelAndView = new ModelAndView();
 //	        if (file.isEmpty()) {
 //	        	System.out.println("비어있다");
-//	            return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동
+////	            //return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동
 //	        }
 //
 //	        System.out.println("시작하겠습니다");

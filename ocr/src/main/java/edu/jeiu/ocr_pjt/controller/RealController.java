@@ -163,14 +163,34 @@ public class RealController {
 		ModelAndView modelAndView = new ModelAndView();
 		ocrService.insertAddLocker(param);
 
-		List<OcrDto> ocrFoodList = ocrService.getOcrFood(param);
-		modelAndView.addObject("ocrFoodList", ocrFoodList);
+		List<OcrDto> ocrFood = ocrService.getOcrFood(param);
+		modelAndView.addObject("ocrFood", ocrFood);
 		modelAndView.setViewName("locker");
 
 		return modelAndView;
 	}
 
-	// input관련 명령어 ============================
+	// locker관련 명령어 끝============================
+	
+	// edit 관련 명령어 ============================
+	@RequestMapping("/edit_open")
+	public ModelAndView edit_open(@RequestParam  HashMap<String, String> param) {
+
+		ModelAndView modelAndView = new ModelAndView();
+		List<OcrDto> ocrFood = ocrService.getEditOcrFood(param);
+		modelAndView.addObject("ocrFood", ocrFood);
+		modelAndView.setViewName("edit");
+
+		return modelAndView;
+	}
+
+
+
+	// locker관련 명령어 끝============================
+	
+	
+	
+	
 
 	// 입력
 	@RequestMapping("/add")

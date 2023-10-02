@@ -24,7 +24,7 @@ public interface OcrDAO {
 	public void selectfood(String param);
 	
 	// foollist 음식 날짜 입력DB 메소드 - insertfood
-	public void insertfood(@Param("inputFood") String inputFood ,@Param("buydate") String buydate );
+	public void insertfood(@Param("inputFood") String inputFood ,@Param("buydate") String buydate ,@Param("expirydate") String expirydate);
 
 	
 	
@@ -44,6 +44,12 @@ public interface OcrDAO {
 	//locker에 food 테이블값 가지고 오기전 업테이트 후 가지고 오기
 	public void updateFoodTable();
 	public List<OcrDto> getDBOcrFood(HashMap<String, String> param);
+	
+	
+	//locker에서 이름 기준으로 food 수정할 테이블값 가지고 오기 그리고 food에 있는 놈들 삭제
+	public List<OcrDto> getDBEditOcrFood(HashMap<String, String> param);
+	public void DeleteFoodTableName();
+
 	// 실행 DB
 	public void addDB(HashMap<String, String> param);
 	

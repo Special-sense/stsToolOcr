@@ -27,7 +27,7 @@
 	<!-- 임시적으로 데이터 가지고 오기 -->
 	<select id="getDBOcrFoodList" parameterType="hashmap"
 		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
-		SELECT no , foodname , buydate
+		SELECT no , foodname , buydate , expirydate
 		FROM foodlist
 
 		order by no desc
@@ -35,7 +35,7 @@
 
 	<!-- DB에 임시적으로 물품 넣기 -->
 	<insert id="insertfood" parameterType="String">
-		insert into foodlist (foodname , buydate  ) values (#{inputFood} , #{buydate})
+		insert into foodlist (foodname , buydate, expirydate  ) values (#{inputFood} , #{buydate} ,#{expirydate})
 	</insert>
 
 
@@ -76,6 +76,23 @@
 	    WHERE id = #{id}
 	    ORDER BY no DESC
 	</select>
+	
+	
+	<!-- locker에서 이름 기준으로 food 수정할 테이블값 가지고 오기 그리고 food 에서 삭제-->
+	<select id="getDBEditOcrFood" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+	    SELECT no , foodname , buydate , expirydate
+	    FROM food
+	    WHERE id = #{id}
+	    ORDER BY no DESC
+	</select>
+
+
+
+	<delete id="DeleteFoodTableName" parameterType="String">
+		delete FROM food
+		Where id = #{id}
+		
+	</delete>
 
 
 

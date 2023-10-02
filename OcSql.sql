@@ -31,6 +31,7 @@ select * from register;
 
 insert into register (id,userPW,username) values ('sun010331','pqnajn1541!','이영선');
 
+insert into register (id,userPW,username) values ('a','a!','이영선');
 drop table register;
 
 -- OCR 임시 저장 테이블
@@ -67,12 +68,14 @@ desc food;
 
 INSERT INTO food (id,foodname)
 VALUES
-  ('ys', 'apple'),
+  ('0', 'apple1'),
   ('ys', 'banana'),
   ('jj', '고기'),
   ('jj', '나물무침'),
   ('jj', '산적'),
-  ('abdk', '훈제오리');
+  ('abdk', '훈제오리'); 
+
+delete from food where no = 19;
 
 -- 그룹별로 AUTO_INCREMENT 값을 할당하는 UPDATE 문
 UPDATE food a
@@ -89,9 +92,8 @@ SELECT * FROM food where id = 'ys' ORDER BY id,no ;
 drop table food;
 select * from food;
 
-
-
-
+ALTER TABLE food
+DROP INDEX unique_foodname;
 
 
 
