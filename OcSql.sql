@@ -31,7 +31,7 @@ select * from register;
 
 insert into register (id,userPW,username) values ('sun010331','pqnajn1541!','이영선');
 
-insert into register (id,userPW,username) values ('a','a!','이영선');
+insert into register (id,userPW,username) values ('a','a','이영선');
 drop table register;
 
 -- OCR 임시 저장 테이블
@@ -50,6 +50,8 @@ desc foodlist;
 select * from foodlist;
 delete  from foodlist;
 drop table foodlist;
+ALTER TABLE foodlist AUTO_INCREMENT = 1; 
+
 
 -- OCR 사용자 전체 테이블
 
@@ -62,6 +64,7 @@ CREATE TABLE food (
   PRIMARY KEY (no,id)
 ) CHARSET=utf8;
 
+drop table food;
 select * from food;
 delete  from food;
 desc food;

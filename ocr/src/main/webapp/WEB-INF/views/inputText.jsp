@@ -49,7 +49,6 @@
 			<c:forEach var="i" items="${ocrFoodList}">
 
 				<tr>
-					<input type="hidden" name="id" value="<%=id%>" size = "10" readonly>
 					<td><input type="text" name="no" value="${i.no}" size = "10" readonly></td>
 					<td><input type="text" name="foodname" value="${i.foodname}" size = "20"></td>
 	 				<td><input type="date" name="buydate" value="${i.buydate}" size = "20"></td>

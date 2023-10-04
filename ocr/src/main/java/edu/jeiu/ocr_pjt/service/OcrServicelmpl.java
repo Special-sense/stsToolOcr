@@ -227,6 +227,7 @@ public class OcrServicelmpl implements OcrService {
 		String inputFood = "";
 		String buydate = "";
 		String expirydate = "";
+		String id = "";
 		if (find > 0) {
 
 			for (int i = Integer.parseInt(countNumber.get(0)) + 1; i < Integer.parseInt(countNumber.get(1)) - 3; i++) {
@@ -237,9 +238,9 @@ public class OcrServicelmpl implements OcrService {
 			buydate = now.toString();
 			expirydate = now.toString();
 
-			ocrDAO.insertfood(inputFood,buydate,expirydate);
+			ocrDAO.insertfood(inputFood,buydate,expirydate,id);
 
-			System.out.println(buydate+"첫번째물품" + inputFood+expirydate);
+			System.out.println(buydate+"첫번째물품" + inputFood+expirydate+"아이디는"+id);
 
 		}
 
@@ -251,7 +252,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List2.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("두번째물품" + inputFood);
 //		}
 //
@@ -263,7 +264,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List3.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("세번째물품" + inputFood);
 //		}
 //
@@ -275,7 +276,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List4.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("네번째물품" + inputFood);
 //		}
 //
@@ -287,7 +288,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List5.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("다섯번째물품" + inputFood);
 //		}
 //
@@ -299,7 +300,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List6.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("여섯번째물품" + inputFood);
 //		}
 //
@@ -311,7 +312,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List7.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("일곱번째물품" + inputFood);
 //		}
 //
@@ -323,7 +324,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List8.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("여덟번째물품" + inputFood);
 //		}
 //
@@ -335,7 +336,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List9.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("아홉번째물품" + inputFood);
 //		}
 //
@@ -347,7 +348,7 @@ public class OcrServicelmpl implements OcrService {
 //			}
 //			
 //			inputFood = List10.toString();
-//			ocrDAO.insertfood(inputFood,buydate);
+//			ocrDAO.insertfood(inputFood,buydate,expirydate);
 //			System.out.println("열번째물품" + inputFood);
 //
 //		}

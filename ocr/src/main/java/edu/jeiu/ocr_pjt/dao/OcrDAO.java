@@ -24,7 +24,7 @@ public interface OcrDAO {
 	public void selectfood(String param);
 	
 	// foollist 음식 날짜 입력DB 메소드 - insertfood
-	public void insertfood(@Param("inputFood") String inputFood ,@Param("buydate") String buydate ,@Param("expirydate") String expirydate);
+	public void insertfood(@Param("inputFood") String inputFood ,@Param("buydate") String buydate ,@Param("expirydate") String expirydate,String id);
 
 	
 	

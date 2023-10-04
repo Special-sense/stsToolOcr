@@ -42,7 +42,7 @@ public class OcrController {
 
 	// 파일 업로드 및 OCR 수행을 위한 POST 요청 핸들러 메서드
 	@RequestMapping("/uploadAndOcr")
-	public ModelAndView uploadAndOcr(@RequestParam("file") MultipartFile file, Model model , HashMap<String , String> param ) throws IOException {
+	public ModelAndView uploadAndOcr(@RequestParam("file") MultipartFile file, Model model , HashMap<String , String> param , @RequestParam("id")String id) throws IOException {
 		ModelAndView modelAndView = new ModelAndView();
 //	        if (file.isEmpty()) {
 //	        	System.out.println("비어있다");
@@ -93,6 +93,8 @@ public class OcrController {
 		result.add("물품");
 		result.add("37,109");
 		result.add("부");
+
+		System.out.println(id+"아이디야이것드랑");
 
 		ocrService.dateMod(result);
 		model.addAttribute("ocrResult", result); // OCR 결과를 HTML 템플릿에 전달

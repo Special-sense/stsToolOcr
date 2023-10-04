@@ -1,6 +1,6 @@
 function add() {
 	// post방식
-	document.form1.action="add";
+	document.form1.action="/ocr_pjt/uploadAndOcr";
 	document.form1.submit();
 }
 

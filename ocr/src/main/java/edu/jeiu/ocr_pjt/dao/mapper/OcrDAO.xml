@@ -35,7 +35,7 @@
 
 	<!-- DB에 임시적으로 물품 넣기 -->
 	<insert id="insertfood" parameterType="String">
-		insert into foodlist (foodname , buydate, expirydate  ) values (#{inputFood} , #{buydate} ,#{expirydate})
+		insert into foodlist (id,foodname , buydate, expirydate  ) values (#{id},#{inputFood} , #{buydate} ,#{expirydate})
 	</insert>
 
 
