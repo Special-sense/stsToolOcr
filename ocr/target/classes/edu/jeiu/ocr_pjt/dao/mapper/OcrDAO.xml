@@ -47,15 +47,22 @@
 	</delete>
 
 
-	<!-- foodList 테이블 데이터 제거 후 food에 데이터 입력 -->
+	<!-- foodList에서 데이터 셀렉 후 food 에 데이터 인설트 후 foodlist 딜리트  -->
+	
+	<insert id="insertAddLockerDB" parameterType="hashmap">
+		insert into food (id,foodname,buydate,expirydate)
+		
+			SELECT fl.id, fl.foodname, fl.buydate , fl.expirydate
+			FROM foodlist as fl
+			where fl.id =  #{id} ;
+	</insert>
+
 	<delete id="delectFoodList" parameterType="String">
 		DELETE FROM
 		foodlist
 	</delete>
 
-	<insert id="insertAddLockerDB" parameterType="hashmap">
-		insert into food (id,foodname , buydate, expirydate) values ( #{id} , #{foodname} , #{buydate} , #{expirydate} )
-	</insert>
+
 
 	<!-- locker에서 food 테이블값 가지고 오기전 데이터 세팅 -->
 	<update id="updateFoodTable" parameterType="hashmap">

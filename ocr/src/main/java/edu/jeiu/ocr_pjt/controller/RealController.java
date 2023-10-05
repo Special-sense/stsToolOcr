@@ -163,17 +163,15 @@ public class RealController {
 
 		ModelAndView modelAndView = new ModelAndView();
 //		원래 코드 -> 이거슨 현재 정보들을 food에 인설트하는것 그 후 food를 셀렉하고 ocrfood로 내보내는 과정 // 문제는 1개만 인설트됨 해야할일 -> 인설트 되는 과정중 왜 1개만 되는가 함 전부다 셀렉해보자
-//		ocrService.insertAddLocker(param);
-//
-//		List<OcrDto> ocrFood = ocrService.getOcrFood(param);
-//		modelAndView.addObject("ocrFood", ocrFood);
-//		modelAndView.setViewName("locker");
-		System.out.println(param+"네넘의 정체는 무성시냐");
-	    String ocrFoodList = param.get("ocrFoodList");
-		System.out.println(ocrFoodList+"네넘의 정체는 무성시123냐"); 
+	    ocrService.insertAddLocker(param);
+
+		List<OcrDto> ocrFood = ocrService.getOcrFood(param);
+	    modelAndView.addObject("ocrFood", ocrFood);
+		modelAndView.setViewName("locker");
+
 		
 		
-		modelAndView.setViewName("inputText");
+
 		return modelAndView;
 	}
 

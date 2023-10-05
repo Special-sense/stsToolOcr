@@ -52,7 +52,11 @@ delete  from foodlist;
 drop table foodlist;
 ALTER TABLE foodlist AUTO_INCREMENT = 1; 
 
-
+-- 데이터 복사 코드
+INSERT INTO food (id,foodname,buydate,expirydate)
+	SELECT fl.id, fl.foodname, fl.buydate , fl.expirydate
+FROM foodlist as fl
+where fl.foodname = '대림';
 -- OCR 사용자 전체 테이블
 
 CREATE TABLE food (

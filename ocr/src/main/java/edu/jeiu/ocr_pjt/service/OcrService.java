@@ -12,7 +12,7 @@ public interface OcrService {
 	public void insertAdd(HashMap<String, String> param);
 	
 
-	public void dateMod(List<String> param);
+	public void dateMod(List<String> param , String id);
 	
 	public List<OcrDto> getOcrFoodList(HashMap<String, String> param);
 
