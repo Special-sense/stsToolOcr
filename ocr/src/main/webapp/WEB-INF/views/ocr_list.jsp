@@ -19,7 +19,7 @@
 <h1>Image Upload and OCR</h1>
 <form action="/ocr_pjt/uploadAndOcr" method="post" enctype="multipart/form-data">
   <input type="file" name="file" accept=".jpg, .jpeg, .png">
-  <button type="submit">Upload and OCR</button>
+  <button type="submit">inputText</button>
   <input type="hidden" name="id" value="<%=id%>">
    <input type="button"  onClick="add()" value="<%=id%>">
 </form>

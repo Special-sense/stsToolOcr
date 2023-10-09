@@ -20,7 +20,8 @@
 <!-- 아직 css , js 작업 전
   <link rel="stylesheet" href="css/accounttransfer.css" type="text/css" media="screen" />
 -->	
-	<script type="text/javascript" src="js/inputText.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/inputText.js?var=1"></script>
 
 </head>
 <body>
@@ -30,7 +31,7 @@
 	<HR>
 
 	<!-- 영수증 스캔 결과 폼 -->
-	<form name="form1" method="post" action="">
+	<form name="form1" method="post" action="" enctype="multipart/form-data">
 
 		<input type="hidden" name="mode" value=${mode}>
 		<input type="hidden" name="checkbox" value="0"  size = "1" checked>
@@ -49,10 +50,10 @@
 			<c:forEach var="i" items="${ocrFoodList}">
 
 				<tr>
-					<td><input type="text" name="no" value="${i.no}" size = "10" readonly></td>
-					<td><input type="text" name="foodname" value="${i.foodname}" size = "20"></td>
-	 				<td><input type="date" name="buydate" value="${i.buydate}" size = "20"></td>
-					<td><input type="date" name="expirydate" value="${i.expirydate}" size = "20"></td> 
+					<td><input type="text" id="no"        		 name="no" value="${i.no}" size = "10" readonly></td>
+					<td><input type="text" id="foodname"   	     name="foodname" value="${i.foodname}" size = "20"></td>
+	 				<td><input type="date" id="buydate"   		 name="buydate" value="${i.buydate}" size = "20"></td>
+					<td><input type="date" id="$expirydate"		 name="expirydate" value="${i.expirydate}" size = "20"></td> 
 					<td><input type="checkbox" name="checkbox" value="${i.no}"  size = "20"></td> 
 				</tr>
 			</c:forEach>			

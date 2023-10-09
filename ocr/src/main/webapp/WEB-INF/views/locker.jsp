@@ -13,7 +13,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>데이터 확인창</title>
+	<title>locker</title>
 <!-- 아직 css , js 작업 전
   <link rel="stylesheet" href="css/accounttransfer.css" type="text/css" media="screen" />
 -->	
@@ -29,7 +29,7 @@
 	<!-- 영수증 스캔 결과 폼 -->
 	<form name="form1" method="post" action="">
 
-		<input type="hidden" name="mode" value=${mode}>
+
 		<input type="hidden" name="id" value=0>
 	
 		<table border=1>

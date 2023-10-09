@@ -1,5 +1,7 @@
 package edu.jeiu.ocr_pjt.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -159,17 +161,48 @@ public class RealController {
 	}
 
 	@RequestMapping("/locker_add")
-	public ModelAndView locker_add(@RequestParam HashMap<String, String> param) {
-
+	public ModelAndView locker_add(HttpServletRequest request)  {
 		ModelAndView modelAndView = new ModelAndView();
-//		원래 코드 -> 이거슨 현재 정보들을 food에 인설트하는것 그 후 food를 셀렉하고 ocrfood로 내보내는 과정 // 문제는 1개만 인설트됨 해야할일 -> 인설트 되는 과정중 왜 1개만 되는가 함 전부다 셀렉해보자
-	    ocrService.insertAddLocker(param);
+		
+		
+		// 요청에서 모든 파라미터를 받아옵니다.
+		Map<String, String[]> parameters = request.getParameterMap();
 
-		List<OcrDto> ocrFood = ocrService.getOcrFood(param);
-	    modelAndView.addObject("ocrFood", ocrFood);
+		List<String> nos = new ArrayList<>();
+
+		for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
+		    String paramName = entry.getKey();
+		    String[] paramValues = entry.getValue();
+
+		    // 파라미터 이름과 값을 출력
+		    System.out.println(paramName + " = " + Arrays.toString(paramValues));
+
+		    // 파라미터를 개별적으로 처리하는 예시
+		    if ("no".equals(paramName)) {
+		        // "no" 파라미터 처리
+		        for (String value : paramValues) {
+		        	nos.add(value);
+		            System.out.println("no: " + value);
+		            System.out.println("nos: " + nos); // nos 출력은 이 위치에 있어야 올바르게 동작합니다.
+		            // 이곳에서 필요한 로직을 수행
+		        }
+		    } else if ("foodname".equals(paramName)) {
+		        // "foodname" 파라미터 처리
+		        for (String value : paramValues) {
+		            System.out.println("foodname: " + value);
+		            // 이곳에서 필요한 로직을 수행
+		        }
+		    }
+		    // 다른 파라미터에 대해서도 유사하게 처리 가능
+		}
+
+
 		modelAndView.setViewName("locker");
 
-		
+
+
+	    modelAndView.addObject("ocrFoodList", parameters);
+		modelAndView.setViewName("locker");		
 		
 
 		return modelAndView;
