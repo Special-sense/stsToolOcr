@@ -29,7 +29,7 @@ public interface OcrService {
 	public void deleteFoodlist(String no);
 	
 	//loker에 db입력
-	public void insertAddLocker(HashMap<String, String> param);
+	public void insertAddLocker(HashMap<String, String> param) ;
 	
 	//locker에 food 테이블값 가지고 오기
 	public List<OcrDto> getOcrFood(HashMap<String, String> param);

@@ -163,17 +163,21 @@ public class RealController {
 	@RequestMapping("/locker_add")
 	public ModelAndView locker_add(HttpServletRequest request)  {
 		ModelAndView modelAndView = new ModelAndView();
-		
+
 		
 		// 요청에서 모든 파라미터를 받아옵니다.
 		Map<String, String[]> parameters = request.getParameterMap();
 
 		List<String> nos = new ArrayList<>();
+		List<String> ids = new ArrayList<>();
+		List<String> foodnames = new ArrayList<>();
+		List<String> buydates = new ArrayList<>();
+		List<String> expirydates = new ArrayList<>();
 
 		for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
+
 		    String paramName = entry.getKey();
 		    String[] paramValues = entry.getValue();
-
 		    // 파라미터 이름과 값을 출력
 		    System.out.println(paramName + " = " + Arrays.toString(paramValues));
 
@@ -182,26 +186,60 @@ public class RealController {
 		        // "no" 파라미터 처리
 		        for (String value : paramValues) {
 		        	nos.add(value);
-		            System.out.println("no: " + value);
-		            System.out.println("nos: " + nos); // nos 출력은 이 위치에 있어야 올바르게 동작합니다.
-		            // 이곳에서 필요한 로직을 수행
+
 		        }
 		    } else if ("foodname".equals(paramName)) {
 		        // "foodname" 파라미터 처리
 		        for (String value : paramValues) {
-		            System.out.println("foodname: " + value);
-		            // 이곳에서 필요한 로직을 수행
+		        	foodnames.add(value);
+
 		        }
 		    }
-		    // 다른 파라미터에 대해서도 유사하게 처리 가능
+		    else if ("buydate".equals(paramName)) {
+		        // "foodname" 파라미터 처리
+		        for (String value : paramValues) {
+		        	buydates.add(value);
+		        }
+		    }
+		    else if ("expirydate".equals(paramName)) {
+		        // "foodname" 파라미터 처리
+		        for (String value : paramValues) {
+		        	expirydates.add(value);	
+		        }
+		    }
+		    else if ("id".equals(paramName)) {
+		        // "foodname" 파라미터 처리
+		        for (String value : paramValues) {
+		        	ids.add(value);	
+		        }
+		    }
+
 		}
+		for (int i = 0; i < nos.size(); i++) {
+			
+			HashMap<String,String> param = new HashMap<>();
+			param.put("no", nos.get(i));
+			param.put("foodname", foodnames.get(i));
+			param.put("buydate", buydates.get(i));
+			param.put("expirydate", expirydates.get(i));
+			param.put("id",ids.get(0));
+			System.out.println(param+"나는 파람이야");
+			ocrService.insertAddLocker(param);
+		    System.out.println("id: " + ids.get(0));
+		    System.out.println("nos: " + nos.get(i));
+		    System.out.println("foodnames: " + foodnames.get(i));
+		    System.out.println("buydates: " + buydates.get(i));
+		    System.out.println("expirydates: " + expirydates.get(i));
+		}
+		
+		HashMap<String,String> param = new HashMap<>();
+		param.put("id",ids.get(0));
+		List<OcrDto> ocrFood = ocrService.getOcrFood(param);
+		System.out.println(ocrFood);
 
 
-		modelAndView.setViewName("locker");
 
-
-
-	    modelAndView.addObject("ocrFoodList", parameters);
+	    modelAndView.addObject("ocrFood", ocrFood);
 		modelAndView.setViewName("locker");		
 		
 
@@ -215,7 +253,9 @@ public class RealController {
 	public ModelAndView edit_open(@RequestParam  HashMap<String, String> param) {
 
 		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(param);
 		List<OcrDto> ocrFood = ocrService.getEditOcrFood(param);
+		System.out.println("확인창"+ocrFood);
 		modelAndView.addObject("ocrFood", ocrFood);
 		modelAndView.setViewName("edit");
 

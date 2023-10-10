@@ -35,7 +35,7 @@
 		<input type="hidden" name="mode" value=${mode}>
 		<input type="hidden" name="id" value=0>
 		<input type="hidden" name="checkbox" value="0"  size = "1" checked>
-		<input type="text" name="id" value="<%=id%>" size = "10" readonly>
+		<input type="hidden" name="id" value="<%=id%>" size = "10" readonly>
 		<table border=1>
 
 			
@@ -50,7 +50,6 @@
 			<c:forEach var="i" items="${ocrFood}">
 
 				<tr>
-					<input type="hidden" name="id" value="<%=id%>" size = "10" readonly>
 					<td><input type="text" name="no" value="${i.no}" size = "10" readonly></td>
 					<td><input type="text" name="foodname" value="${i.foodname}" size = "20"></td>
 	 				<td><input type="date" name="buydate" value="${i.buydate}" size = "20"></td>

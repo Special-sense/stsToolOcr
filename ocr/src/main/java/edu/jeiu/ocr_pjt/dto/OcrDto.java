@@ -6,7 +6,7 @@ public class OcrDto {
 	private String userPW ;
 	private String userName ;
 	
-	private int no ;
+	private String no ;
 	private String foodname;
 	private String buydate;
 	private String expirydate;
@@ -30,10 +30,10 @@ public class OcrDto {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getNo() {
+	public String getNo() {
 		return no;
 	}
-	public void setNo(int no) {
+	public void setNo(String no) {
 		this.no = no;
 	}
 	public String getFoodname() {

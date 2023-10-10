@@ -50,11 +50,7 @@
 	<!-- foodList에서 데이터 셀렉 후 food 에 데이터 인설트 후 foodlist 딜리트  -->
 	
 	<insert id="insertAddLockerDB" parameterType="hashmap">
-		insert into food (id,foodname,buydate,expirydate)
-		
-			SELECT fl.id, fl.foodname, fl.buydate , fl.expirydate
-			FROM foodlist as fl
-			where fl.id =  #{id} ;
+		insert into food (id,foodname , buydate, expirydate  ) values (#{id},#{foodname} , #{buydate} ,#{expirydate})
 	</insert>
 
 	<delete id="delectFoodList" parameterType="String">
@@ -95,7 +91,7 @@
 
 
 
-	<delete id="DeleteFoodTableName" parameterType="String">
+	<delete id="DeleteFoodTableName" parameterType="hashmap">
 		delete FROM food
 		Where id = #{id}
 		

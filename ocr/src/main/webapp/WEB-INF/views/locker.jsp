@@ -7,7 +7,9 @@
 <!-- taglib 지시어  -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<%
+	String id = (String)session.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +32,7 @@
 	<form name="form1" method="post" action="">
 
 
-		<input type="hidden" name="id" value=0>
+		<input type="hidden" name="id" value="<%=id%>">
 	
 		<table border=1>
 

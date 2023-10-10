@@ -139,7 +139,7 @@ public class OcrServicelmpl implements OcrService {
 		List<OcrDto> getEditOcrFood = ocrDAO.getDBEditOcrFood(param);
 
 		//가지고 오고 삭제하기
-		ocrDAO.DeleteFoodTableName();
+		ocrDAO.DeleteFoodTableName(param);
 		
 		
 		return getEditOcrFood;
