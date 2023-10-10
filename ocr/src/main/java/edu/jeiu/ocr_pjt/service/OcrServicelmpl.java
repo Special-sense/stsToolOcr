@@ -134,15 +134,19 @@ public class OcrServicelmpl implements OcrService {
 		
 		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
 		
+		//food -> foodlist 이동
+		ocrDAO.copyfoodtofoodlist(param);
+		//foodlist no update 
+		ocrDAO.updateFoodlistTable();
 		
+		List<OcrDto> getDBOcrFoodList = ocrDAO.getDBEditOcrFood(param);
 
-		List<OcrDto> getEditOcrFood = ocrDAO.getDBEditOcrFood(param);
-
+		
 		//가지고 오고 삭제하기
 		ocrDAO.DeleteFoodTableName(param);
 		
 		
-		return getEditOcrFood;
+		return getDBOcrFoodList;
 		
 	}
 	

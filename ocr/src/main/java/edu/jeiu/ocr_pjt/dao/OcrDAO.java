@@ -46,10 +46,14 @@ public interface OcrDAO {
 	public void updateFoodTable();
 	public List<OcrDto> getDBOcrFood(HashMap<String, String> param);
 	
-	
+
 	//locker에서 이름 기준으로 food 수정할 테이블값 가지고 오기 그리고 food에 있는 놈들 삭제
 	public List<OcrDto> getDBEditOcrFood(HashMap<String, String> param);
+	public void copyfoodtofoodlist(HashMap<String, String> param);
+	//foodlist 넘버 초기화
+	public void updateFoodlistTable();
 	public void DeleteFoodTableName(HashMap<String, String> param);
+	
 
 	// 실행 DB
 	public void addDB(HashMap<String, String> param);

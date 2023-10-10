@@ -94,7 +94,6 @@ public class OcrController {
 		result.add("37,109");
 		result.add("부");
 
-		System.out.println(id+"아이디야이것드랑");
 
 		ocrService.dateMod(result, id);
 		model.addAttribute("ocrResult", result); // OCR 결과를 HTML 템플릿에 전달

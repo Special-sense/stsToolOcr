@@ -12,13 +12,15 @@
 		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
 		SELECT id,userPW
 		FROM register
-		where id = #{id} and userPW = #{userPW}
+		where id = #{id} and userPW =
+		#{userPW}
 	</select>
 
 
 	<!-- 회원가입 -->
 	<insert id="insertRegisterDB" parameterType="hashmap">
-		insert into register (id,userPW,userName) values
+		insert into register
+		(id,userPW,userName) values
 		(#{id},#{userPW},#{userName})
 	</insert>
 
@@ -35,7 +37,9 @@
 
 	<!-- DB에 임시적으로 물품 넣기 -->
 	<insert id="insertfood" parameterType="String">
-		insert into foodlist (id,foodname , buydate, expirydate  ) values (#{id},#{inputFood} , #{buydate} ,#{expirydate})
+		insert into foodlist
+		(id,foodname , buydate, expirydate ) values (#{id},#{inputFood} ,
+		#{buydate} ,#{expirydate})
 	</insert>
 
 
@@ -47,10 +51,12 @@
 	</delete>
 
 
-	<!-- foodList에서 데이터 셀렉 후 food 에 데이터 인설트 후 foodlist 딜리트  -->
-	
+	<!-- foodList에서 데이터 셀렉 후 food 에 데이터 인설트 후 foodlist 딜리트 -->
+
 	<insert id="insertAddLockerDB" parameterType="hashmap">
-		insert into food (id,foodname , buydate, expirydate  ) values (#{id},#{foodname} , #{buydate} ,#{expirydate})
+		insert into food
+		(id,foodname , buydate, expirydate ) values (#{id},#{foodname} ,
+		#{buydate} ,#{expirydate})
 	</insert>
 
 	<delete id="delectFoodList" parameterType="String">
@@ -64,7 +70,8 @@
 	<update id="updateFoodTable" parameterType="hashmap">
 		UPDATE food a
 		JOIN (
-		SELECT id, foodname, ROW_NUMBER() OVER (PARTITION BY id ORDER BY no) AS
+		SELECT id, foodname, ROW_NUMBER() OVER (PARTITION BY id ORDER BY no)
+		AS
 		new_no
 		FROM food
 		) AS subquery
@@ -72,37 +79,62 @@
 		subquery.foodname
 		SET a.no = subquery.new_no;
 	</update>
-	
-	<select id="getDBOcrFood" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
-	    SELECT no , foodname , buydate , expirydate
-	    FROM food
-	    WHERE id = #{id}
-	    ORDER BY no DESC
-	</select>
-	
-	
-	<!-- locker에서 이름 기준으로 food 수정할 테이블값 가지고 오기 그리고 food 에서 삭제-->
-	<select id="getDBEditOcrFood" parameterType="hashmap" resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
-	    SELECT no , foodname , buydate , expirydate
-	    FROM food
-	    WHERE id = #{id}
-	    ORDER BY no DESC
+
+	<select id="getDBOcrFood" parameterType="hashmap"
+		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+		SELECT no , foodname , buydate , expirydate
+		FROM food
+		WHERE id = #{id}
+		ORDER BY no DESC
 	</select>
 
 
+	<!-- locker에서 이름 기준으로 food 수정할 테이블값 가지고 오기 foodlist로 복사 그리고 food 에서 삭제 -->
+	<!-- name 기준으로 데이터 불러오기 -->
+	<select id="getDBEditOcrFood" parameterType="hashmap"
+		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
+		SELECT no , foodname , buydate , expirydate
+		FROM food
+		WHERE id = #{id}
+		ORDER BY no DESC
+	</select>
+	<!-- food -> foodlist 복사 -->
 
+	<insert id="copyfoodtofoodlist" parameterType="hashmap">
+		insert into foodlist (id,foodname,buydate,expirydate)
+		select fo.id, fo.foodname, fo.buydate , fo.expirydate
+		from food as fo
+		where fo.id = #{id}
+
+	</insert>
+
+	<!-- food 에서 데이터 삭제 -->
 	<delete id="DeleteFoodTableName" parameterType="hashmap">
 		delete FROM food
 		Where id = #{id}
-		
+
 	</delete>
+		<!-- locker에서 food 테이블값 가지고 오기전 데이터 세팅 -->
+	<update id="updateFoodlistTable" parameterType="hashmap">
+		UPDATE foodlist a
+		JOIN (
+		SELECT id, foodname, ROW_NUMBER() OVER (PARTITION BY id ORDER BY no)
+		AS
+		new_no
+		FROM foodlist
+		) AS subquery
+		ON a.id = subquery.id AND a.foodname =
+		subquery.foodname
+		SET a.no = subquery.new_no;
+	</update>
 
 
 
 
 
 	<update id="addDB" parameterType="hashmap">
-		update OcrTest set countNumber = 99 where id = 1
+		update OcrTest set countNumber
+		= 99 where id = 1
 	</update>
 
 

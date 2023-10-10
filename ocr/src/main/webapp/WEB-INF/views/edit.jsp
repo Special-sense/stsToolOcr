@@ -33,7 +33,6 @@
 	<form name="form1" method="post" action="">
 
 		<input type="hidden" name="mode" value=${mode}>
-		<input type="hidden" name="id" value=0>
 		<input type="hidden" name="checkbox" value="0"  size = "1" checked>
 		<input type="hidden" name="id" value="<%=id%>" size = "10" readonly>
 		<table border=1>
@@ -47,7 +46,7 @@
 				<th>삭제</th>
 			</tr>
 			
-			<c:forEach var="i" items="${ocrFood}">
+			<c:forEach var="i" items="${ocrFoodList}">
 
 				<tr>
 					<td><input type="text" name="no" value="${i.no}" size = "10" readonly></td>

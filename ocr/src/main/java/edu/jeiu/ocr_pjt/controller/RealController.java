@@ -254,9 +254,9 @@ public class RealController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		System.out.println(param);
-		List<OcrDto> ocrFood = ocrService.getEditOcrFood(param);
-		System.out.println("확인창"+ocrFood);
-		modelAndView.addObject("ocrFood", ocrFood);
+		List<OcrDto> ocrFoodList = ocrService.getEditOcrFood(param);
+		System.out.println("확인창"+ocrFoodList);
+		modelAndView.addObject("ocrFoodList", ocrFoodList);
 		modelAndView.setViewName("edit");
 
 		return modelAndView;
