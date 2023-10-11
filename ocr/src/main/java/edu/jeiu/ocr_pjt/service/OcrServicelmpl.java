@@ -139,7 +139,7 @@ public class OcrServicelmpl implements OcrService {
 		//foodlist no update 
 		ocrDAO.updateFoodlistTable();
 		
-		List<OcrDto> getDBOcrFoodList = ocrDAO.getDBEditOcrFood(param);
+		List<OcrDto> getDBOcrFoodList = ocrDAO.getDBOcrFoodList(param);
 
 		
 		//가지고 오고 삭제하기

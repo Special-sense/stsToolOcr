@@ -9,27 +9,70 @@
 
 <%
 	String id = (String)session.getAttribute("id");
+
+		String log="";
+		String help="";
+		if(id == null){
+			log ="<a href=login_open> 로그인 </a>";
+		}else {
+			log ="<a href=logout> 로그아웃 </a>";
+		}
+		
+		if(id == null){
+			help ="<a href=list_open> 부탁해 </a>";
+		}else {
+			help ="<a href=list_open> 부탁해 </a>";
+		}
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>locker</title>
-<!-- 아직 css , js 작업 전
-  <link rel="stylesheet" href="css/accounttransfer.css" type="text/css" media="screen" />
--->	
+	
+	 <!-- viewport 선언문 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    <link rel="stylesheet" href="css/locker.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/locker.js?ver=1"></script>
+	<title>locker</title>
 
 </head>
 <body>
 
-	<div align=center>
-	<H2>영수증 스캔 결과폼</H2>
-	<HR>
+
+	<div class="container">
+        
+        <!-- 메인 -->
+        <div class="main"> 
+            
+            <!-- 상단 메뉴바 -->
+            <div class="nav">
+                <ul>
+                    <li class="nav-text">
+                        <a href="index_open">
+                            <img src="resources/img/logo_refrigerator.png" width="80px" alt="logo-main">
+                        </a>
+                    </li>
+                   <li class="nav-text01"><%=help%></li>
+                    <li class="nav-text02"><%=log%></li>
+                </ul>
+        </div>
+	<hr>
+	
+	<div style="text-align: center; ">
+	<H2>내 내장고 목록</H2>
+
 
 	<!-- 영수증 스캔 결과 폼 -->
-	<form name="form1" method="post" action="">
+	<form name="form1" method="post" action=""  style="text-align: center; ">
 
 
 		<input type="hidden" name="id" value="<%=id%>">

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="css/register.css?ver=1" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
     <script type="text/javascript" src="js/register.js?ver=1"></script>
     
     <title>sign up</title>
@@ -18,30 +18,29 @@
         </div>
         <div class="res-form">
                 <form name="register1" method="post" action="" autocomplete="off">
-                    <fieldset class="login-border">
+                    <fieldset class="res-border">
                         <ul class="inform">
                             <li>
-                                <label for="userID">ID</label>
+                                <label for="userID"></label>
                                 <input type="text" name="id"  class="res-ID" placeholder="아이디" value=${OcrDto.id}>
                             </li>
                             <li>
-                                <label for="username">이름</label>
+                                <label for="username"></label>
                                 <input type="text" name="userName"  class="res-name" value=${OcrDto.userName}>
                             </li>
                             <li>
-                                <label for="userPW">PW</label>
+                                <label for="userPW"></label>
                                 <input type="text" name="userPW" class="res-pw" placeholder="비밀번호" value=${OcrDto.userPW} >
                             </li>
                             <li>
-                                <label for="userPW">PW 확인</label>
+                                <label for="userPW"></label>
                                 <input type="text" name="userok"   class="res-pwok" >
                             </li>
                         </ul>
-                    </fieldset>                   
+                   
         			<input type="button" onClick="register()" value="회원가입" class="login-btn"></button>
-                </form>
-        </div>
 
+ 
                 
             <div class="login-add">
             <ul class="add">
@@ -52,6 +51,9 @@
                 <a href="#">비밀번호 찾기</a>
                 </li>
             </ul>
+                      </fieldset> 
+             	  	 </form>
+                    </div>
             </div>
         </div>
 </body>

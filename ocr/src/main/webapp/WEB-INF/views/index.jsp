@@ -13,7 +13,7 @@
 	}
 	
 	if(mem_id == null){
-		help ="<a href=list_open> 부탁해 </a>";
+		help ="<a href=login_open> 부탁해 </a>";
 	}else {
 		help ="<a href=list_open> 부탁해 </a>";
 	}
