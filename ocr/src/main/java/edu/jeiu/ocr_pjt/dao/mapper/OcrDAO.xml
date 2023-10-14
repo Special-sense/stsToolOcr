@@ -128,7 +128,13 @@
 		SET a.no = subquery.new_no;
 	</update>
 
+<!--  null값 하나 넣기 -->
+	<insert id="insertAddnull" parameterType="hashmap">
+		insert into foodlist
+		(id,foodname , buydate, expirydate ) values (null,null ,
+		null ,null)
 
+	</insert>
 
 
 

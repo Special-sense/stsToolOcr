@@ -30,7 +30,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+  
+    <!-- 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        
     <link href="css/index.css?ver=1" rel="stylesheet">
     <script type="text/javascript" src="js/index.js?ver=1"></script>
 
@@ -100,55 +105,88 @@
             <button class="box02-btn"><a href="login_open">START !</a></button>
         </div>
 
-        <!-- 푸터 -->
-        <footer>
-            <div class="footer-all">
+       <!-- 푸터 -->
+        <div class="bin-box01">
+            <footer class="footer">
                 <div class="footer-container">
-                    <div class="footer-front">
-                    <ul class="footer-text">
-                        <li class="footer-li1">
-                            <ul>
-                                <li>나만의 냉장고</li>
-                                <li>영수증 스캔하기</li>
-                                <li>텍스트로 입력하기</li> 
-                                <li>내 냉장고 보기</li>
-                            </ul>
-                        </li>
-                        <li class="footer-li2">
-                            <ul>
-                                <li>유통기한 알림</li>
-                            </ul>
-                        </li>
-                        <li class="footer-li3">
-                            <ul>
-                                <li>AI 레시피 추천</li>
-                            </ul>
-                        </li>
-                </div>
-                    <div class="footer-social">
-                    <ul>
-                        <li><a href="">유튜브</a></li>
-                        <li><a href="">페북</a></li>
-                        <li><a href="">인스타</a></li>
-                        <li><a href="">네이버 블로그</a></li>
-                    </ul>
+                    <div class="footer-list-top">
+                        <ul class="footer-list">
+                            <li class="footer-list-maintext"><a href="#">나만의 냉장고</a></li>
+                            <li class="footer-list-subtext"><a href="#">영수증 입력하기</a></li>
+                            <li class="footer-list-subtext"><a href="#">텍스트로 입력하기</a></li>
+                            <li class="footer-list-subtext"><a href="#">내 냉장고 보기</a></li>
+                        </ul>
+    
+                        <ul class="footer-list01">
+                            <li class="footer-list-maintext"><a href="#">유통기한 알림</a></li>
+                        </ul>
+    
+                        <ul class="footer-list02">
+                            <li class="footer-list-maintext"><a href="#">AI 레시피 추천</a></li>
+                        </ul>
                     </div>
-                </ul> 
-            </div>
-                <address class="footer-address">
-                   <span class="bar"></span>
-                   " 상호명(주) 나만의 냉장고"
-                   <span class="bar-break"></span>
-                   " 공동대표:이영선,김종범,최환석,양홍섭 "
-                   <span class="bar-break"></span>
-                   " 사업자 등록번호:103-xx-xxxxx "
-                    <p class="">
 
-                    </p>
-                </address>
+                    <div class="footer-list-bottom">
+                        <address class="footer-address">
+                            <p style="font-style: normal;">
+                                상호명: (주) 나만의 냉장고 | 공동대표: 이영선, 김종범, 최환석, 양홍섭 <br>
+                                사업자 등록번호: 103-xx-xxxxx | 본사: 인천광역시 연수구 송도교육로 111번길 15
+                            </p>
+                        </address>
+
+                        <div class="footer-social">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fas fa-n"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <style>
+                .footer-list-subtext a {
+                    color: rgb(65, 65, 65);
+                }
+        
+                .footer-list-top a:hover {
+                    color:rgb(14, 14, 14);
+                            
+                    cursor: pointer;
+                } 
+            </style>
         </div>
+        <!-- 여기까지 푸터 -->
+    </div>
+
+
+    <!-- 푸터 sty.2 -->
+    <div class="var2-bin-box01">
+        <footer class="var2-footer">
+            <div class="var2-footer-container">
+                <div class="var2-footer-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fas fa-n"></i></a></li>
+                    </ul>
+                </div>
+                <div class="var2-footer-list-bottom">
+                    <address class="var2-footer-address">
+                        <p style="font-style: normal;">
+                            상호명: (주) 나만의 냉장고 | 공동대표: 이영선, 김종범, 최환석, 양홍섭 <br>
+                            사업자 등록번호: 103-xx-xxxxx | 본사: 인천광역시 연수구 송도교육로 111번길 15
+                        </p>
+                    </address>
+                </div>
+            </div>
         </footer>
     </div>
+
+
 
 </body>
 </html>

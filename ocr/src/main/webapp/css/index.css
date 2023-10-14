@@ -21,6 +21,7 @@
 .main {
     width: 100%;
     height: 48.5vw;
+    background-image: url('img/img_refrigerator.png');
     background-size: cover;
 }
 
@@ -42,19 +43,19 @@
 .nav-text01 {
     position: absolute;
     top: 15px;
-    right: 250px;
+    right: 150px;
 }
 
 .nav-text02 {
     position: relative;
     top: 15px;
-    right: 100px;
+    right: 50px;
 }
 
 .nav a {
     text-decoration: none;
     color: white;
-    font-size: 2.5vh;
+    font-size: 20px;
     transition: color 0.2s;
 }
 
@@ -110,10 +111,33 @@
 
 .box-text02 {
     font-weight: 400;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     margin: 100px 0 0 20px;
 }
 
+/* .box ³ÐÀÌ 800px ¶§ ÄÁÅÙÃ÷ ³ÐÀÌÁ¶Á¤ */
+@media (max-width: 800px) {
+    .box {
+        width: 100%;
+    }
+
+    .box-text {
+        margin-left: 10%;
+        padding-top: 10%;
+    }
+    
+    .box-text01 {
+        margin: 15px 0 0 10%;
+    }
+    
+    .box-text02 {
+        margin: 75px 0 0 10%;
+    }
+
+    .box video {
+        margin-right: 10%;
+    }
+}
 
 
 /* ----------- µÎ¹øÂ° ¹Ú½º ----------- */
@@ -151,7 +175,7 @@
 }
 
 .box01-text-container p {
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     font-weight: 400;
 }
 
@@ -168,6 +192,26 @@
     width: 33%;
 }
 
+/* .box01 ³ÐÀÌ 800px ¶§ ÄÁÅÙÃ÷ ³ÐÀÌÁ¶Á¤ */
+@media (max-width: 800px) {
+    .box01 {
+        width: 100%;
+    }
+    .box01-text-container {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .box01-function {
+        
+        width: 33%;
+    }
+    .box01-function01 {
+        width: 33%;
+    }
+    .box01-function02 {
+        width: 33%;
+    }
+}
 
 /* ----------- ¼¼¹øÂ° ¹Ú½º ----------- */
 .box02 {
@@ -185,7 +229,7 @@
     padding-bottom: 10%;
 }
 
-/* START ! ¹öÆ° ½ºÅ¸ÀÏ¸µ */
+/* START ! */
 .box02-btn {
     
     position: relative;
@@ -214,9 +258,154 @@
 }
 
 
+#wrap{
+    min-height: 100vh;
+    position:relative;
+    width:100%;
+}
+
+
 /* ----------- ÇªÅÍ ----------- */
-.footer {
+.footer-800up {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    background-color: rgb(211,211,211);
+}
+
+.bin-box01 {
     width: 100%;
-    height: 100px;
-    background-color: gray;
+    
+    background-color: rgb(211,211,211);
+}
+
+.footer-list-top ul {
+    list-style: none;
+}
+
+.footer-list-top {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    padding: 7vh;
+}
+
+.footer-list-maintext {
+    font-size: 1.7vw;
+    padding-bottom: 15px;
+}
+
+.footer-list-subtext {
+    font-size: 1.4vw;
+    padding-bottom: 6px;
+}
+
+.footer-list-top a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+/* ÇÏ´Ü */
+.footer-list-bottom {
+    display: flex;
+}
+
+.footer-address {
+    font-size: 1vw;
+    color: rgb(65, 65, 65);
+    padding-bottom: 30px;
+}
+
+.footer-social {
+    position: absolute;
+    bottom: 50;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.footer-social ul {    
+    list-style: none;
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-social i {
+    font-size: 2vw;
+    color: #000;
+    margin-left: 6vw;
+}
+
+
+
+@media (max-width: 800px) {
+    .footer {
+        display: none;
+    }
+    .var2-footer {
+        display: block;
+    }
+}
+
+@media (min-width: 800px) {
+    .footer {
+        display: block;
+    }
+    .var2-footer {
+        display: none;
+    }
+}
+
+
+/* ----------- ÇªÅÍ ----------- */
+.var2-footer {
+    width: 100%;
+    position: absolute;
+    bottom: -70%;
+    background-color: rgb(211,211,211);
+}
+
+.var2-bin-box01 {
+    width: 100%;
+    
+    background-color: rgb(211,211,211);
+}
+
+
+/* ÇÏ´Ü */
+.var2-footer-list-bottom {
+    display: flex;
+}
+
+.var2-footer-address {
+    font-size: 1.2vw;
+    color: rgb(65, 65, 65);
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.var2-footer-social {
+    padding-top: 3vw;
+    padding-left: 30%;
+    padding-right: 40%;
+}
+
+.var2-footer-social ul {    
+    list-style: none;
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+.var2-footer-social i {
+    font-size: 2vw;
+    color: #000;
+    margin-left: 6vw;
 }

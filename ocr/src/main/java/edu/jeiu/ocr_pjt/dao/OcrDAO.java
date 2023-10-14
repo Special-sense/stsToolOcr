@@ -55,6 +55,8 @@ public interface OcrDAO {
 	public void DeleteFoodTableName(HashMap<String, String> param);
 	
 
+	
+	public void insertAddnull();
 	// 실행 DB
 	public void addDB(HashMap<String, String> param);
 	

@@ -37,4 +37,6 @@ public interface OcrService {
 	//locker에 food 수정할 테이블값 가지고 오기
 	public List<OcrDto> getEditOcrFood(HashMap<String, String> param);
 	
+	//edit 에서 정호 1개 추가
+	public void editadd(HashMap<String, String> param);
 }

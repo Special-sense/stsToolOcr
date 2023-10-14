@@ -4,45 +4,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+            <!-- viewport 선언문-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+        <!-- 아이콘 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
     <link href="css/login.css?ver=1" rel="stylesheet">
     <script type="text/javascript" src="js/login.js"></script>
 
     <title>sign in</title>
 </head>
 <body>
-    <div class="login-all">
-        <div class="login-logo">
-         <a href="index_open"><img src="resources/img/logo_refrigerator.png"></a>
-        </div>
-            <div class="login-form">
-                <form name="login1" method="post" action="" autocomplete="off">
-                    <fieldset class="login-border">
-                        <ul class="inform">
-                            <li>
-                                <label for="userID">ID</label>
-                                <input type="text" name="id" class="login-ID" placeholder="아이디" value=${Ocrdto.id}>
-                            </li>
-                            <li>
-                                <label for="userPW">PW</label>
-                                <input type="text" name="userPW"  class="login-pw" placeholder="비밀번호" value=${Ocrdto.userPW}>
-                            </li>
-                        </ul>
-                        <button type="submit" onClick="login()" class="login-btn">로그인</button>
+	      <!--로고-->
+         <a href="index_open"><img class="Logo"  src="resources/img/logo_refrigerator.png"  alt="로고"></a>
+      
+        <div class="login">
+        
+
+            
+          <form class="login_form" name="login_form"  method="post" action="#" autocapitalize="off">
+               
+         	   <input class="login-ID" type="text" id="id" name="id" placeholder="아이디" value=${Ocrdto.id}>
+         	   
+         	                          
+	           <div class="pw_container">
+	           	  <input class="password" type="password" id="userPW"  name="userPW"  placeholder="비밀번호" value=${Ocrdto.userPW}>
+	              <span class="pw_toggle" onclick="togglePasswordVisibility()"><i class="fas fa-eye"></i></span>
+	           </div>
+
+            	<input class="login-button" type="submit" value="로그인" onclick="validateForm()">
+     	  </form>
                 
-            <div class="login-add">
-            <ul class="add">
-                <li>
-                <a href="register_open">회원가입</a>
-                </li>
-                <li>
-                <a href="#">비밀번호 찾기</a>
-                </li>
-            </ul>
-            </div>
-                    </fieldset>        
-                </form>
-            </div>
+       <div class="links">
+            <a href="register_open">회원가입</a>
+          </div>
+          <div class="links">
+            <a href="#">비밀번호를 잊어버리셨나요?</a>
+          </div>
+          
+        </div>
+                
+ 
+            
     </div>
-</body>
+	</body>
 </html>

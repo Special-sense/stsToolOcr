@@ -2,31 +2,122 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+    
 <%
 	String id = (String)session.getAttribute("id");
+	
+	String log="";
+	String help="";
+	if(id == null){
+		log ="<a href=login_open> 로그인 </a>";
+	}else {
+		log ="<a href=logout> 로그아웃 </a>";
+	}
+	
+	if(id == null){
+		help ="<a href=list_open> 부탁해 </a>";
+	}else {
+		help ="<a href=list_open> 부탁해 </a>";
+	}
+
 %>
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 선언문 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
   <title>OCR 만들기</title>
-  
+     <link href="css/ocr_list.css?var=1" rel="stylesheet">
   	<script type="text/javascript" src="js/ocr_list.js"></script>
 </head>
 <body>
-<h1>Image Upload and OCR</h1>
-<form action="/ocr_pjt/uploadAndOcr" method="post" enctype="multipart/form-data">
-  <input type="file" name="file" accept=".jpg, .jpeg, .png">
-  <button type="submit">inputText</button>
-  <input type="hidden" name="id" value="<%=id%>">
-   <input type="button"  onClick="add()" value="<%=id%>">
-</form>
 
-<form name="form1" action="" method="post" >
- <input type="button"  onClick="add()" value="DB연결 확인">
-</form>
+
+
+    <div class="container">
+    
+            
+        <!-- 상단 네비바 -->
+        <div class="nav">
+            <ul>
+                <li class="nav-text">
+                    <a href="index_open">
+                    	<img src="resources/img/logo_refrigerator.png" width="80px" alt="logo-main">
+                    </a>
+                </li>
+                    <li class="nav-text01"><%=help%></li>
+                    <li class="nav-text02"><%=log%></li>
+            </ul>
+        </div>
+  		<!-- 메인 박스 -->
+        <div class="main">
+             <div class="box">
+                <form action="/ocr_pjt/uploadAndOcr" method="post" enctype="multipart/form-data">
+            		<input type="hidden" name="id" value="<%=id%>" >
+                    <p><a href="#"><input class="btn-upload" id="file" type="file" name="file" accept=".jpg, .jpeg, .png"></a>
+                    <br>
+                        <a href="#">
+                    <button class="w-btn w-btn-indigo" type="submit">
+                        	영수증 스캔하기
+                    </button>
+                    </a></p>
+                  </form>
+            </div>
+            <div class="box01">
+                <form action="edit_open" method="post" enctype="multipart/form-data">
+                 	<input type="hidden" name="id" value="<%=id%>" >
+                	<p><a href="">
+                    <button class="w-btn w-btn-indigo" type="submit">
+                     	     텍스트로 입력하기
+                    </button></a></p>
+                </form>
+            </div>
+            <div class="box02">
+                <form action="locker_open" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<%=id%>" >
+                	<p><a href="">                   
+                	<button class="w-btn w-btn-indigo" type="submit">
+                        	내 냉장고 보기
+                    </button></a></p></a></p>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- 푸터 sty.2 -->
+        <div class="bin-box01">
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-social">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fas fa-n"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-list-bottom">
+                        <address class="footer-address">
+                            <p style="font-style: normal;">
+                                상호명: (주) 나만의 냉장고 | 공동대표: 이영선, 김종범, 최환석, 양홍섭 <br>
+                                사업자 등록번호: 103-xx-xxxxx | 본사: 인천광역시 연수구 송도교육로 111번길 15
+                            </p>
+                        </address>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
 </body>
-
 </html>

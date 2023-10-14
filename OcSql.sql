@@ -48,6 +48,7 @@ CREATE TABLE foodlist (
 desc foodlist;
 
 select * from foodlist;
+insert into foodlist (id,foodname,buydate,expirydate) value(null,null,null,null);
 delete  from foodlist;
 ALTER TABLE foodlist AUTO_INCREMENT = 1; 
 drop table foodlist;

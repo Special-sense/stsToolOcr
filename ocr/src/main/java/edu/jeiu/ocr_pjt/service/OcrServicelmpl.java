@@ -139,7 +139,8 @@ public class OcrServicelmpl implements OcrService {
 		//foodlist no update 
 		ocrDAO.updateFoodlistTable();
 		
-		List<OcrDto> getDBOcrFoodList = ocrDAO.getDBEditOcrFood(param);
+		//foodlist에서 가지고 오기
+		List<OcrDto> getDBOcrFoodList = ocrDAO.getDBOcrFoodList(param);
 
 		
 		//가지고 오고 삭제하기
@@ -151,6 +152,17 @@ public class OcrServicelmpl implements OcrService {
 	}
 	
 
+	
+	//edit에서 db에 정보 추가를 위해 null값1 건 입력
+	public void editadd(HashMap<String, String> param){
+		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
+		
+		//foodlist에 null값 한건 데이터 입력
+		ocrDAO.insertAddnull();
+
+
+		
+	}
 	
 	//데이터 음식만 추출
 

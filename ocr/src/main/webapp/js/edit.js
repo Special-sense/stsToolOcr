@@ -4,6 +4,13 @@ function deleteFood() {
 	document.form1.submit();
 }
 
+function edit_add() {
+
+	document.form1.action = "edit_add";
+	document.form1.submit();
+}
+
+
 function lockeradd() {
 	
 		var tableRows = document.getElementsByTagName("tr");
