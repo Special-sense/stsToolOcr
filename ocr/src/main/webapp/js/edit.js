@@ -4,6 +4,12 @@ function deleteFood() {
 	document.form1.submit();
 }
 
+function addfoodlist() {
+
+	document.form1.action = "inputText_delete";
+	document.form1.submit();
+}
+
 function lockeradd() {
 	
 		var tableRows = document.getElementsByTagName("tr");

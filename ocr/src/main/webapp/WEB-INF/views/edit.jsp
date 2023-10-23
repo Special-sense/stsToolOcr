@@ -99,6 +99,7 @@
 		
 		<input type="button" value="완료 " onClick="lockeradd()"></input>
 		<input type="button" value="삭제하기 " onClick="deleteFood()"></input>
+		<input type="button" value="추가하기 " onClick="addfoodlist()"></input>
 	</form>
 	</div>
 
