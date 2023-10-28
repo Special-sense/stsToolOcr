@@ -90,7 +90,7 @@
 			</c:forEach>			
 			
 		</table>
-				<p><input type="button" value="수정 " onclick="edit_add()"></p>
+				<p><input type="button" value="하나 추가하기 " onclick="edit_add()"></p>
 		<input type="button" value="완료 " onClick="lockeradd()"></input>
 		<input type="button" value="삭제하기 " onClick="deleteFood()"></input>
 

@@ -343,37 +343,12 @@
 }
 
 
-
-@media (max-width: 800px) {
-    .footer {
-        display: none;
-    }
-    .var2-footer {
-        display: block;
-    }
-}
-
-@media (min-width: 800px) {
-    .footer {
-        display: block;
-    }
-    .var2-footer {
-        display: none;
-    }
-}
-
-
 /* ----------- г╙ем ----------- */
-.var2-footer {
+.var2-footer {    
     width: 100%;
     position: absolute;
-    bottom: -70%;
-    background-color: rgb(211,211,211);
-}
+    bottom: -48.5vw;
 
-.var2-bin-box01 {
-    width: 100%;
-    
     background-color: rgb(211,211,211);
 }
 
@@ -388,6 +363,7 @@
     color: rgb(65, 65, 65);
     
     padding-top: 30px;
+    padding-left: 15px;
     padding-bottom: 30px;
 }
 
@@ -408,4 +384,23 @@
     font-size: 2vw;
     color: #000;
     margin-left: 6vw;
+}
+
+
+@media (max-width: 800px) {
+    .footer {
+        display: none;
+    }
+    .var2-footer {
+        display: block;
+    }
+}
+
+@media (min-width: 800px) {
+    .footer {
+        display: block;
+    }
+    .var2-footer {
+        display: none;
+    }
 }

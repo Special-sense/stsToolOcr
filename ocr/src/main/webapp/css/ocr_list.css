@@ -1,5 +1,4 @@
-@charset "EUC-KR";
-/* �⺻ ���� */
+/* 기본 세팅 */
 * {
     margin: 0;
     padding: 0;
@@ -7,17 +6,24 @@
     font-weight: 700;
 }
 
+body {
+    background-color: #F2F2F2;
+    width: 100%;
+    z-index: -1;
+}
+
 .point {
     color: #217542;
 }
 
-/* �׺���̼� �� */
+
+/* -----------------네비게이션 바 ---------------------*/
 .nav {
-    background-color: transparent;
-    border-bottom: 1px solid;
+    position: relative;
 }
 
 .nav ul {
+    /* 수직 정렬 */
     display: flex;
     justify-content: space-between;
     list-style-type: none;
@@ -25,23 +31,26 @@
 }
 
 .nav li {
-    margin: 10px 0 0 30px;
+    margin: 20px 0 0 30px;
 }
 
 .nav-text01 {
+    /* 부모 기준으로 이동 */
     position: absolute;
     top: 40px;
-    right: 250px;
+    right: 9em;
 }
 
 .nav-text02 {
-    position: relative;
+    /* 부모 기준으로 이동 */
+    position: absolute;
     top: 40px;
-    right: 100px;
+    right: 3em;
 }
 
 .nav a {
     text-decoration: none;
+
     color: #000;
     font-size: 2.5vh;
     transition: color 0.2s;
@@ -53,35 +62,116 @@
 
 
 
-/* ----------- ���� ----------- */
-.main {
-    width: 70%;
-    height: 30vw;
+/* -------------------네비 및 수평선------------------ */
+hr {
+    background-color: #217542;
+    height: 3px;
+    width: 95%;
 
-    position: absolute;
-    top: 29%;
+    /* 중앙정렬 */
+    position: relative;
     left: 50%;
     transform: translate(-50%);
 
+    top: 1em;
+}
+
+
+/* ------------------- 메인 ------------------ */
+.main {
+    position: relative;
+    top: 5em;
+}
+
+.main-text {
+    position: relative;
     
+    top: 0.8em;
+
     text-align: center;
-    display: flex;
-    justify-content: space-around;
-
-    padding-top: 50px;
-}
-
-.main p {
-    display: inline-block;
-    text-align: center;
-    color:#fff;
-    margin-top: 48%;
-
-    font-size: 1.7vw;
+    font-size: 1.5em;
 }
 
 
-.main a {
+/* -------------------메인 폼------------------ */
+.main-form {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    margin-top: 350px;
+
+    border: 0px hidden;
+
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+    background-color: #fff;
+    margin-bottom: 5%;
+}
+
+@media (max-width:1100px){
+    .main-form {
+        margin-top: 330px;
+    }
+}
+
+@media (min-width:1500px){
+    .main-form {
+        margin-top: 500px;
+    }
+}
+
+.main-form01 {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    border: 0px hidden;
+
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+    background-color: #fff;
+}
+
+
+
+
+/* -----------------box---------------- */
+.box {
+    
+    float: left;
+    position: relative;
+
+    
+    margin-top: 2.8em;
+
+    right: 0;
+
+    width: 100%;
+    height: 10em; 
+
+    background-image: url(img/img_receipts.jpg);
+    background-position: center ;
+    background-size: 100vw;
+
+    border-radius: 30px 10px 10px;
+
+    text-align: center;
+}
+
+.box p {
+    text-align: center;
+    font-size: 1.5em;
+    
+    margin-top: 1.2em;
+}
+
+.box label {
     text-decoration: none;
     color: #fff;
     background-color: rgba(189, 189, 189, 0.7);
@@ -91,114 +181,205 @@
     display: inline-block;
 }
 
-.main a:hover {
+
+.box label:hover {
     background-color: #1a5b34;
     transform: scale(0.95);
 }
 
 
-
-/* ---------- box --------- */
-.box {
-    position: relative;
-    width: 30%;
-    height: 75%; 
-
-    background-image: url(../resources/img/img_receipts.jpg);
-    background-position: center;
-    background-size: 500px;
-
-    border-radius: 30px 10px 10px;
-}
-button {
-    margin: 10px;
-}
 .w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 30px;
-    background-color: rgba(189, 189, 189, 0.1);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-
-}
-.w-btn-indigo {
-
-    color: #1e6b7b;
+    color: #000;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    
+    border-radius: 2px;
+    border: hidden;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
+.w-btn:hover {
+    background-color: #222222;
+    color:#fff;
+    transform: scale(0.95);
+}
 
-.btn-upload {
-    width: 150px;
-    height: 30px;
-    background: #fff;
-    border: 1px solid rgb(77,77,77);
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-      background: rgb(77,77,77);
-      color: #fff;
-    }
-  }
-  
 
-/* ---------- box01 --------- */
+
+/* -----------------box01---------------- */
 .box01 {
+    
+    float: left;
     position: relative;
-    width: 30%;
-    height: 75%;
+    width: 100%;
+    height: 10em; 
 
-    background-image: url(../resources/img/img_text.jpg);
+    background-image: url(img/img_text.jpg);
     background-position: center;
-    background-size: 500px;
+    background-size: 100vw;
 
     border-radius: 30px 10px 10px;
+
+    text-align: center;
+    
+    margin-top: 1.2em;
 }
 
-/* ---------- box02 --------- */
+.box01 p {
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 10%;
+
+    
+    margin-top: 2.1em;
+}
+
+.box01 a {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(189, 189, 189, 0.7);
+    padding: 0px 0px;
+    margin: 0px;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+}
+
+.box01 a:hover {
+
+    transform: scale(0.95);
+}
+
+.box01 button {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(189, 189, 189, 0.7);
+    padding: 20px 40px;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+    font-size: 1.0em;
+}
+
+.box01 button:hover {
+    background-color: #1a5b34;
+    transform: scale(0.95);
+}
+
+/* -----------------box02---------------- */
+
 .box02 {
+    float: left;
     position: relative;
-    width: 30%;
-    height: 75%;
+    width: 100%;
+    height: auto; 
 
-    background-image: url(../resources/img/img_refrigerator.png);
+    background-image: url(img/img_refrigerator.png);
     background-position: center;
-    background-size: 800px;
+    background-size: 40em;
 
-    border-radius: 50px 5px 10px;
+    border-radius: 30px 10px 10px;
+
+    text-align: center;
+}
+
+.box02 p {
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 10%;
+    
+    margin-top: 5em;
+}
+
+.box02 a {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(189, 189, 189, 0.7);
+    padding: 0px;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+}
+
+.box02 a:hover {
+
+    transform: scale(0.95);
+}
+
+.box02 button {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(189, 189, 189, 0.7);
+    padding: 20px 40px;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+    font-size: 1.0em;
+}
+
+.box02 button:hover {
+    background-color: #1a5b34;
+    transform: scale(0.95);
+}
+
+
+@media (max-width: 1150px) {
+    .box {
+        width: 100%;
+    }
+    .box01 {
+        width: 100%;
+    }
     
 }
 
+/* -----------------preview---------------- */
 
-#wrap{
-    height : 100%;
-  }
 
-/* ----------- Ǫ�� ----------- */
+
+.preview {
+    all:unset;
+
+    width: 100%;
+    float: left;
+    position: relative;
+
+        
+    padding: 0.3em;
+    padding-top: 1em;
+    margin-top: 1em;
+
+    background-color: #f2f2f2;
+    
+    text-align: center;
+
+    border-radius: 30px;
+}
+
+.preview-text {
+    font-size: 1em;
+    padding: 1em;
+}
+
+
+
+
+
+/* ----------- 푸터 ----------- */
 .footer {
     width: 100%;
     position: absolute;
-    bottom: 0%;
+    bottom: 0;
+
+    top: 110em;
+}
+.footer-container {
     background-color: rgb(211,211,211);
 }
 
-.bin-box01 {
-    width: 100%;
-    
-    background-color: rgb(211,211,211);
-}
-
-
-/* �ϴ� */
+/* 하단 */
 .footer-list-bottom {
-    display: flex;
+    display: block;
 }
 
 .footer-address {
@@ -207,6 +388,7 @@ button {
     
     padding-top: 30px;
     padding-bottom: 30px;
+    padding-left: 10px;
 }
 
 .footer-social {

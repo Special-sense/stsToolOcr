@@ -44,55 +44,55 @@ public class OcrController {
 	@RequestMapping("/uploadAndOcr")
 	public ModelAndView uploadAndOcr(@RequestParam("file") MultipartFile file, Model model , HashMap<String , String> param , @RequestParam("id")String id) throws IOException {
 		ModelAndView modelAndView = new ModelAndView();
-//	        if (file.isEmpty()) {
-//	        	System.out.println("비어있다");
-////	            //return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동
-//	        }
-//
-//	        System.out.println("시작하겠습니다");
-//	        
-//	        String naverSecretKey = secretKey; // 본인의 네이버 Clova OCR 시크릿 키로 대체
-//
-//	        File tempFile = File.createTempFile("temp", file.getOriginalFilename());
-//	        file.transferTo(tempFile);
-//
-//	        List<String> result = naverApi.callApi("POST", tempFile.getPath(), naverSecretKey, "jpg");
-//
-//	        tempFile.delete(); // 임시 파일 삭제
-//	        System.out.println(result);
+	        if (file.isEmpty()) {
+	        	System.out.println("비어있다");
+//	            //return "error"; // 파일이 비어있을 경우 에러를 처리하는 HTML 템플릿으로 이동
+	        }
+
+	        System.out.println("시작하겠습니다");
+	        
+	        String naverSecretKey = secretKey; // 본인의 네이버 Clova OCR 시크릿 키로 대체
+
+	        File tempFile = File.createTempFile("temp", file.getOriginalFilename());
+	        file.transferTo(tempFile);
+
+	        List<String> result = naverApi.callApi("POST", tempFile.getPath(), naverSecretKey, "jpg");
+
+	        tempFile.delete(); // 임시 파일 삭제
+	        System.out.println(result);
 
 		// 테스트용
-		List<String> result = new ArrayList<>();
-		result.add("1");
-		result.add("이,마트");
-		result.add("청계천점(02)2290-1234");
-		result.add("emart");
-		result.add("206-86-50913");
-		result.add("이갑수");
-		result.add("서울시");
-		result.add("중구");
-		result.add("금 액");
-		result.add("01");
-		result.add("(G)치킨");
-		result.add("너겟");
-		result.add("1kg");
-		result.add("10,500");
-		result.add("1");
-		result.add("10,500");
-		result.add("02");
-		result.add("용가리치킨520+140");
-		result.add("8,550");
-		result.add("1");
-		result.add("8,550");
-		result.add("03");
-		result.add("대림");
-		result.add("133,000");
-		result.add("2");
-		result.add("133,000");
-		result.add("과세");
-		result.add("물품");
-		result.add("37,109");
-		result.add("부");
+//		List<String> result = new ArrayList<>();
+//		result.add("1");
+//		result.add("이,마트");
+//		result.add("청계천점(02)2290-1234");
+//		result.add("emart");
+//		result.add("206-86-50913");
+//		result.add("이갑수");
+//		result.add("서울시");
+//		result.add("중구");
+//		result.add("금 액");
+//		result.add("01");
+//		result.add("(G)치킨");
+//		result.add("너겟");
+//		result.add("1kg");
+//		result.add("10,500");
+//		result.add("1");
+//		result.add("10,500");
+//		result.add("02");
+//		result.add("용가리치킨520+140");
+//		result.add("8,550");
+//		result.add("1");
+//		result.add("8,550");
+//		result.add("03");
+//		result.add("대림");
+//		result.add("133,000");
+//		result.add("2");
+//		result.add("133,000");
+//		result.add("과세");
+//		result.add("물품");
+//		result.add("37,109");
+//		result.add("부");
 
 
 		ocrService.dateMod(result, id);
