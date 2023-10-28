@@ -102,7 +102,7 @@
 						<p>
 							<!-- 업로드 버튼 -->
 						<div class="upload-container">
-							<a href="#"><input class="btn-upload" id="file" type=hidden
+							<a href="#"><input class="btn-upload" id="file" type="file"
 								name="file" accept=".jpg, .jpeg, .png"  style="display:none" ></a> <br> <a
 								href="#"> <label for="file"
 								class="upload-button"> <i
