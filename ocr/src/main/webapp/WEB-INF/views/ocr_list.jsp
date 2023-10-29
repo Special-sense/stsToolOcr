@@ -103,9 +103,8 @@
 							<!-- 업로드 버튼 -->
 						<div class="upload-container">
 							<a href="#"><input class="btn-upload" id="file" type="file"
-								name="file" accept=".jpg, .jpeg, .png"  style="display:none" ></a> <br> <a
-								href="#"> <label for="file"
-								class="upload-button"> <i
+								name="file" accept=".jpg, .jpeg, .png"  style="display:none" ></a> <br> <a href="#"> 
+								<label for="file" class="upload-button"> <i
 								class="fas fa-cloud-upload-alt"></i> 이미지 업로드
 							</label>
 						</div>

@@ -29,7 +29,8 @@ public interface OcrDAO {
 	
 	
 	
-	//냉장고에 넣은 후 바로 조회
+	//유통기한자동설정 후 / 바로 조회
+	public void updateExpiry(HashMap<String, String> param);
 	public List<OcrDto> getDBOcrFoodList(HashMap<String, String> param);
 	
 	

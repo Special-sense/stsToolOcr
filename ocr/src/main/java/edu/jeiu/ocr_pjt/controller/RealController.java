@@ -155,6 +155,10 @@ public class RealController {
 	public ModelAndView locker_open(@RequestParam  HashMap<String, String> param) {
 
 		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(param);
+		List<OcrDto> ocrFood = ocrService.getEditOcrFood(param);
+		System.out.println("확인창"+ocrFood);
+		modelAndView.addObject("ocrFood", ocrFood);
 		modelAndView.setViewName("locker");
 
 		return modelAndView;

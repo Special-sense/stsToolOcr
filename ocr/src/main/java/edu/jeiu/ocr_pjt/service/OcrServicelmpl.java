@@ -82,6 +82,9 @@ public class OcrServicelmpl implements OcrService {
 
 		OcrDAO ocrDAO = sqlSession.getMapper(OcrDAO.class);
 		
+		//foodlis에서 유통기한 자동 설정
+		ocrDAO.updateExpiry(param);
+		
 		List<OcrDto> getOcrFoodList = ocrDAO.getDBOcrFoodList(param);
 
 		

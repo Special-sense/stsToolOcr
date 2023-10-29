@@ -27,6 +27,15 @@
 
 
 	<!-- 임시적으로 데이터 가지고 오기 -->
+	
+	
+	<update id="updateExpiry" parameterType="hashmap">
+		update foodlist as a , expiry as e 
+		set a.expirydate = DATE_ADD(a.expirydate, INTERVAL e.expirydate DAY) 
+		where e.foodname = a.foodname ;
+
+	</update>
+	
 	<select id="getDBOcrFoodList" parameterType="hashmap"
 		resultType="edu.jeiu.ocr_pjt.dto.OcrDto">
 		SELECT no , foodname , buydate , expirydate

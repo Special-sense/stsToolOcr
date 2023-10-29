@@ -106,11 +106,24 @@ ALTER TABLE food
 DROP INDEX unique_foodname;
 
 
+CREATE TABLE expiry (
+  no INT AUTO_INCREMENT,
+  foodname CHAR(30) NOT NULL,
+  expirydate char(20),
+
+  PRIMARY KEY (no)
+) CHARSET=utf8;
+
+drop table expiry;
+insert into expiry (foodname,expirydate) values ('농심튀김우동면118g','240');
+insert into expiry (foodname,expirydate) values ('롯데ABC초코렛200g','90');
+insert into expiry (foodname,expirydate) values ('더건강한구운어묵','20');
+insert into expiry (foodname,expirydate) values ('모짜렐라피자치즈1k','90');
+insert into expiry (foodname,expirydate) values ('(신)참이슬후레쉬6','600');
+select * from expiry;
 
 
-
-
-
+update expiry as a , food as b set a.test = DATE_ADD(a.test, INTERVAL 1 DAY) where a.no =1 ;
 
 
 
