@@ -11,12 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.jeiu.ocr_pjt.dto.OcrDto;
 import edu.jeiu.ocr_pjt.service.OcrService;
+
+
 
 @Controller
 public class RealController {
@@ -285,5 +288,39 @@ public class RealController {
 
 		return modelAndView;
 	}
+	
+	
+	// api ChatGPT명령어 끝============================
+	// OpenAI GPT-3 API Key
+    private final String API_KEY = "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";
 
+
+    @GetMapping("/recommendation")
+    public String getRecommendation() {
+        // GPT-3 API 호출을 위한 프롬프트 생성
+        String prompt = "I am looking for recipes using '김치' and '삼겹살'. Please suggest some recipes.";
+
+        // GPT-3 API 호출 및 결과 반환
+        String recommendation = callOpenAIAPI(prompt);
+
+        // API 호출 결과를 반환합니다.
+        return recommendation;
+    }
+
+    // OpenAI API 호출 메서드	
+    private String callOpenAIAPI(String prompt) {
+        OpenAICompletion completion = OpenAI.createCompletion(
+                prompt,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                API_KEY
+        );
+        return completion.getData().getText();
+    }
+    
+    
 }
