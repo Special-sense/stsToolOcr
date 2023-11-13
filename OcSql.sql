@@ -16,6 +16,7 @@ grant file on *.* to 'pes'@'localhost';
 
 
 
+
 -- 회원가입 테이블
 create table register (
   id varchar(20),
