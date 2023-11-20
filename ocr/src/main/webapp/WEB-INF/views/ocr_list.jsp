@@ -40,7 +40,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <title>OCR 만들기</title>
-<link href="css/ocr_list.css" rel="stylesheet">
+<link href="css/ocr_list.css?var=1" rel="stylesheet">
 <script type="text/javascript" src="js/ocr_list.js"></script>
 </head>
 <body>
@@ -99,21 +99,21 @@
 						enctype="multipart/form-data">
 						<input type="hidden" name="id" value="<%=id%>">
 						
-						<p>
-							<!-- 업로드 버튼 -->
-						<div class="upload-container">
-							<a href="#"><input class="btn-upload" id="file" type="file"
-								name="file" accept=".jpg, .jpeg, .png"  style="display:none" ></a> <br> <a href="#"> 
-								<label for="file" class="upload-button"> <i
-								class="fas fa-cloud-upload-alt"></i> 이미지 업로드
-							</label>
-						</div>
-						<br>
-						<!-- 서밋 버튼 -->
-						<a href="#" class="box-btn">
-							<button class="w-btn w-btn-indigo" type="submit">영수증
-								스캔하기</button>
-						</a>
+						<p class="box-button">
+								<!-- 업로드 버튼 -->
+							<div class="upload-container">
+								<a href="#"><input class="btn-upload" id="file" type="file"
+									name="file" accept=".jpg, .jpeg, .png"  style="display:none" ></a> <br> <a href="#"> 
+									<label for="file" class="upload-button"> <i
+									class="fas fa-cloud-upload-alt"></i> 이미지 업로드
+								</label>
+							</div>
+							<br>
+							<!-- 서밋 버튼 -->
+							<a href="#" class="box-btn">
+								<button class="w-btn w-btn-indigo" type="submit">영수증
+									스캔하기</button>
+							</a>
 						</p>
 						<br>
 					</form>

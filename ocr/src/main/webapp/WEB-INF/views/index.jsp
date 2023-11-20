@@ -36,7 +36,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
         
-    <link href="css/index.css?ver=1" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <script type="text/javascript" src="js/index.js?ver=1"></script>
 
 </head>
@@ -90,11 +90,11 @@
                     </div>
                     <div class="box01-function01">
                         <img src="resources/img/icon_bell.png">
-                        <p>유통기한이 지나기 전에 알림을 받아 음식물 쓰레기를 줄일 수 있습니다.</p>
+                        <p>음식의 유통기한을 자동적으로 <br>설정 해 줍니다.</p>
                     </div>
                     <div class="box01-function02">
                         <img src="resources/img/icon_ai.png">
-                        <p>냉장고 안에 있는 음식물들을 기반으로 AI가 추천하는 요리 레시피를 추천받을 수 있습니다.</p>
+                        <p>냉장고의 물품들을 관리해 신선하게 먹을 수 있습니다.</p>
                     </div>
             </div>
         </div>
@@ -118,11 +118,11 @@
                         </ul>
     
                         <ul class="footer-list01">
-                            <li class="footer-list-maintext"><a href="#">유통기한 알림</a></li>
+                            <li class="footer-list-maintext"><a href="#">유통기한 자동설정</a></li>
                         </ul>
     
                         <ul class="footer-list02">
-                            <li class="footer-list-maintext"><a href="#">AI 레시피 추천</a></li>
+                            <li class="footer-list-maintext"><a href="#">건강한 음식 관리</a></li>
                         </ul>
                     </div>
 

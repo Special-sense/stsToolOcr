@@ -187,6 +187,9 @@ hr {
     transform: scale(0.95);
 }
 
+.box form {
+    margin-top: -25px;
+}
 
 .w-btn {
     color: #000;
@@ -204,7 +207,11 @@ hr {
     transform: scale(0.95);
 }
 
-
+box-button {
+	
+    margin-top: 20px;
+	
+}
 
 /* -----------------box01---------------- */
 .box01 {
@@ -397,7 +404,7 @@ hr {
     padding-right: 40%;
 }
 
-.footer-social ul {    
+.footer-social ul {    .
     list-style: none;
     
     display: flex;
