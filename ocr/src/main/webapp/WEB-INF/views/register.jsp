@@ -29,7 +29,7 @@
                 <input type="text" id="name" name="userName" placeholder="이름" required value=${OcrDto.userName}>
                 <br>
                 <span id="name-error-message"></span>
-                <input type="text" id="username" name="id" placeholder="아이디" required value=${OcrDto.id}>
+                <input type="text" id="username" name="id" placeholder="이메일" required value=${OcrDto.id}>
                 <br>
                 <div class="pw_container">
                     <input type="password" id="password" name="userPW" placeholder="비밀번호" required value=${OcrDto.userPW}>

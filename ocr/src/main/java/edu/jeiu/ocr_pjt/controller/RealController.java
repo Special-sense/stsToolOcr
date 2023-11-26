@@ -284,7 +284,18 @@ public class RealController {
 	// edit관련 명령어 끝============================
 	
 	
-	
+	// email관련 명령어들 =================================================
+	// 목록 조회화면 Open
+	@RequestMapping("/email")
+	public ModelAndView email() {
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("email");
+
+		return modelAndView;
+	}
+
+	// index관련 명령어 여기까지 =================================================
 	
 
 	// 입력

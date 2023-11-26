@@ -61,5 +61,7 @@ public interface OcrDAO {
 	// 실행 DB
 	public void addDB(HashMap<String, String> param);
 	
+	//이메일 보낼 때 아이디만  조회
+	public void selectId();
 
 }

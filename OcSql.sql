@@ -29,7 +29,7 @@ desc register;
 select * from register where id ='ㅁ';
 select * from register;
 
-insert into register (id,userPW,username) values ('sun010331','pqnajn1541!','이영선');
+insert into register (id,userPW,username) values ('sun010331@naver.com','a','이영선');
 
 insert into register (id,userPW,username) values ('b','b','이영선');
 drop table register;
@@ -74,7 +74,7 @@ drop table food;
 select * from food;
 delete  from food;
 desc food;
-
+ALTER TABLE food AUTO_INCREMENT = 1; 
 INSERT INTO food (id,foodname)
 
 VALUES
@@ -123,9 +123,9 @@ insert into expiry (foodname,expirydate) values ('(신)참이슬후레쉬6','600
 select * from expiry;
 
 
-update expiry as a , food as b set a.test = DATE_ADD(a.test, INTERVAL 1 DAY) where a.no =1 ;
+update foodlist as a , expiry as e set a.expirydate = DATE_ADD(a.expirydate, INTERVAL e.expirydate DAY) where e.foodname = a.foodname ;
 
-
+select * from foodlist;
 
 
 
